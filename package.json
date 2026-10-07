@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node -e \"const fs = require('fs'); if (fs.existsSync('Index.html') && !fs.existsSync('index.html')) fs.copyFileSync('Index.html', 'index.html');\"",
     "build": "vite build",
     "preview": "vite preview"
   },
