@@ -207,6 +207,7 @@ const bundleItems = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
+  initHeroSlider();
   initScrollAnimations();
   initNavbarScroll();
   initPortfolioTabs();
@@ -216,6 +217,98 @@ document.addEventListener('DOMContentLoaded', () => {
   initPortfolioDetailsModal();
   initMobileNav();
 });
+
+/**
+ * 0. Hero Banner Slider with Crossfade, Autoplay, and Mobile Swipe
+ */
+function initHeroSlider() {
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  const dotsNav = document.getElementById('heroSliderDots');
+  const slider = document.getElementById('heroSlider');
+  if (!slides.length) return;
+
+  let currentIndex = 0;
+  let autoTimer = null;
+  const SLIDE_DURATION = 4800;
+
+  function showSlide(index) {
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+    currentIndex = index;
+
+    slides.forEach((s, i) => {
+      s.classList.toggle('is-active', i === currentIndex);
+    });
+
+    dots.forEach((d, i) => {
+      const isActive = (i === currentIndex);
+      d.classList.toggle('is-active', isActive);
+      d.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      
+      const fill = d.querySelector('.hero-dot-fill');
+      if (fill) {
+        fill.style.animation = 'none';
+        void fill.offsetWidth; // force reflow
+        if (isActive) {
+          fill.style.animation = `heroDotProgress ${SLIDE_DURATION}ms linear forwards`;
+        }
+      }
+    });
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoTimer = setInterval(() => {
+      showSlide(currentIndex + 1);
+    }, SLIDE_DURATION);
+  }
+
+  function stopAutoplay() {
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const idx = parseInt(dot.dataset.slide, 10);
+      showSlide(idx);
+      startAutoplay();
+    });
+  });
+
+  if (dotsNav) {
+    dotsNav.addEventListener('mouseenter', stopAutoplay);
+    dotsNav.addEventListener('mouseleave', startAutoplay);
+  }
+
+  if (slider) {
+    // Mobile touch swipe gestures
+    let touchStartX = 0;
+    slider.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].clientX;
+      stopAutoplay();
+    }, { passive: true });
+
+    slider.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      const diff = touchEndX - touchStartX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) {
+          showSlide(currentIndex - 1);
+        } else {
+          showSlide(currentIndex + 1);
+        }
+      }
+      startAutoplay();
+    }, { passive: true });
+  }
+
+  showSlide(0);
+  startAutoplay();
+}
 
 /**
  * 1. Floaty Appear Animations (IntersectionObserver)
@@ -363,8 +456,8 @@ function renderBundlePills() {
           <span>${item.icon}</span>
           <span>${item.name}</span>
         </div>
-        <div style="display:flex; align-items:center; gap:12px;">
-          <span style="font-size:0.82rem; color:var(--text-muted); font-weight:500;">${item.label}</span>
+        <div class="bundle-item-right-wrap">
+          <span class="bundle-item-label">${item.label}</span>
           <div class="bundle-check-circle">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="20 6 9 17 4 12"></polyline>
