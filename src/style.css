@@ -483,19 +483,21 @@ button {
   height: 100%;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s ease;
+  transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.4s ease;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding-top: 140px;
   padding-bottom: 60px;
   z-index: 1;
+  pointer-events: none;
 }
 
 .hero-slide.is-active {
   opacity: 1;
   visibility: visible;
   z-index: 2;
+  pointer-events: auto;
 }
 
 .hero-slide .hero-background-wrap {
@@ -540,13 +542,13 @@ button {
 }
 
 .hero-slide.is-active .hero-text-block {
-  animation: heroTextFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: heroTextFadeIn 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 @keyframes heroTextFadeIn {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -604,7 +606,7 @@ button {
 }
 
 .hero-dot.is-active .hero-dot-fill {
-  animation: heroDotProgress 4.8s linear forwards;
+  animation: heroDotProgress 7.5s linear forwards;
 }
 
 @keyframes heroDotProgress {

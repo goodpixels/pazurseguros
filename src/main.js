@@ -11,7 +11,7 @@ export const insuranceData = {
       id: "salud-personas",
       title: "Salud y Medicina Prepagada",
       tag: "Personas & Familia",
-      image: "/images/card-salud.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481831/card-salud_xgqswv.jpg",
       highlight: "Desde $92.000 / mes (para dos personas)",
       desc: "Acceso preferencial a las mejores clínicas de Medellín y Colombia. Consultas sin copagos excesivos y cobertura hospitalaria integral.",
       details: [
@@ -26,7 +26,7 @@ export const insuranceData = {
       id: "auto-personas",
       title: "Autos y Motos Todo Riesgo",
       tag: "Movilidad Segura",
-      image: "/images/card-auto.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481830/card-auto_prg9ma.jpg",
       highlight: "Asistencia vial 24/7 en carretera",
       desc: "Protección total frente a colisión, hurto, daños a terceros y pérdida total con grúa inmediata y carro sustituto.",
       details: [
@@ -41,7 +41,7 @@ export const insuranceData = {
       id: "hogar-mascotas",
       title: "Hogar y Mascotas",
       tag: "Tranquilidad en Casa",
-      image: "/images/card-hogar.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481832/card-hogar_jqcyxg.jpg",
       highlight: "Estructura + Contenidos + Peludos",
       desc: "Tu patrimonio y tus seres queridos protegidos frente a sismo, incendios, agua, hurto y urgencias veterinarias.",
       details: [
@@ -56,7 +56,7 @@ export const insuranceData = {
       id: "vida-accidentes",
       title: "Vida & Accidentes Personales",
       tag: "Protección Familiar",
-      image: "/images/hero-family.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481830/hero-family_gkfhsg.jpg",
       highlight: "Respaldo financiero garantizado",
       desc: "Garantiza el futuro educativo de tus hijos y la estabilidad de tu familia ante cualquier eventualidad o invalidez.",
       details: [
@@ -73,7 +73,7 @@ export const insuranceData = {
       id: "todo-riesgo-empresa",
       title: "Todo Riesgo Empresarial",
       tag: "Pyme & Corporativo",
-      image: "/images/card-empresa.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481831/card-empresa_msjtkz.jpg",
       highlight: "Blindaje operativo y patrimonial",
       desc: "Protege las instalaciones físicas, maquinaria, mercancía y lucro cesante de tu empresa en Medellín y toda Colombia.",
       details: [
@@ -88,7 +88,7 @@ export const insuranceData = {
       id: "responsabilidad-civil",
       title: "Responsabilidad Civil (RCE)",
       tag: "Respaldo Legal",
-      image: "/images/card-auto.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481830/card-auto_prg9ma.jpg",
       highlight: "Amparo ante reclamos de terceros",
       desc: "Cubre perjuicios patrimoniales y extrapatrimoniales causados a clientes, proveedores o visitantes en tu operación.",
       details: [
@@ -103,7 +103,7 @@ export const insuranceData = {
       id: "cumplimiento-fraudes",
       title: "Pólizas de Cumplimiento & Fraude",
       tag: "Contratación Segura",
-      image: "/images/advisor.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481831/card-empresa_msjtkz.jpg",
       highlight: "Garantía contractual y financiera",
       desc: "Agilidad en expedición de garantías para contratos privados, estatales (SECOP) y protección ante delitos económicos.",
       details: [
@@ -118,7 +118,7 @@ export const insuranceData = {
       id: "flotas-transporte",
       title: "Flota de Transporte & Carga",
       tag: "Logística y Movilidad",
-      image: "/images/card-auto.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481830/card-auto_prg9ma.jpg",
       highlight: "Tarifas colectivas corporativas",
       desc: "Asegura los vehículos de tu empresa y el transporte de mercancías a nivel local, regional y nacional con monitoreo.",
       details: [
@@ -135,7 +135,7 @@ export const insuranceData = {
       id: "salud-colectiva",
       title: "Salud Colectiva & PAC SURA",
       tag: "Beneficio para Empleados",
-      image: "/images/card-salud.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481831/card-salud_xgqswv.jpg",
       highlight: "Retención de talento y bienestar",
       desc: "Planes corporativos de salud y Planes de Atención Complementaria (PAC SURA) a tarifas grupales altamente competitivas.",
       details: [
@@ -150,7 +150,7 @@ export const insuranceData = {
       id: "vida-grupo",
       title: "Vida Grupo Corporativo",
       tag: "Seguridad para el Equipo",
-      image: "/images/hero-family.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481830/hero-family_gkfhsg.jpg",
       highlight: "Protección integral a bajo costo",
       desc: "Brinda un respaldo económico a las familias de tus trabajadores ante imprevistos, accidentes o fallecimiento.",
       details: [
@@ -165,7 +165,7 @@ export const insuranceData = {
       id: "autos-colectivos",
       title: "Flotilla de Autos Colectiva",
       tag: "Beneficio Empleados",
-      image: "/images/card-auto.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481830/card-auto_prg9ma.jpg",
       highlight: "Descuentos de hasta el 25%",
       desc: "Permite a tus colaboradores asegurar sus vehículos particulares con tarifas corporativas negociadas por Pazur.",
       details: [
@@ -180,7 +180,7 @@ export const insuranceData = {
       id: "accidentes-escolares",
       title: "Accidentes Escolares y Laborales",
       tag: "Instituciones & Gremios",
-      image: "/images/vision-dog.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481831/vision-dog_hithzu.jpg",
       highlight: "Respuesta inmediata en urgencias",
       desc: "Pólizas colectivas de accidentes para colegios, universidades, academias deportivas y eventos corporativos.",
       details: [
@@ -230,7 +230,7 @@ function initHeroSlider() {
 
   let currentIndex = 0;
   let autoTimer = null;
-  const SLIDE_DURATION = 4800;
+  const SLIDE_DURATION = 7500;
 
   function showSlide(index) {
     if (index < 0) index = slides.length - 1;
