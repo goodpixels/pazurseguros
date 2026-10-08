@@ -230,7 +230,7 @@ function initHeroSlider() {
 
   let currentIndex = 0;
   let autoTimer = null;
-  const SLIDE_DURATION = 7500;
+  const SLIDE_DURATION = 7000;
 
   function showSlide(index) {
     if (index < 0) index = slides.length - 1;
