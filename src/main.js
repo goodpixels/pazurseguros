@@ -432,6 +432,11 @@ const bundleItems = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
+  const legacyRoutes = {portafolio:'/polizas/', paquete:'/polizas/#paquete', cotizador:'/cotizador/', 'como-trabajamos':'/como-trabajamos/', siniestros:'/siniestros/', equipo:'/nosotros/', blog:'/blog/', faq:'/preguntas-frecuentes/', contacto:'/contactar/#contacto'};
+  if (window.location.pathname === '/' && legacyRoutes[window.location.hash.slice(1)]) {
+    window.location.replace(legacyRoutes[window.location.hash.slice(1)]);
+    return;
+  }
   initNavbarScroll();
   initMobileNav();
   initHeroCategorySelector();
@@ -442,7 +447,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initBundleBuilder();
   initFaqAccordion();
   initContactForm();
-  initDirectoryModal();
   initQuoteModal();
   initPortfolioDetailsModal();
   initScrollAnimations();
@@ -475,8 +479,21 @@ function initMobileNav() {
 
   if (!toggleBtn || !overlay) return;
 
-  const openDrawer = () => overlay.classList.add('is-open');
-  const closeDrawer = () => overlay.classList.remove('is-open');
+  const openDrawer = () => {
+    overlay.classList.add('is-open');
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    closeBtn?.focus();
+  };
+  const closeDrawer = () => {
+    overlay.classList.remove('is-open');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    toggleBtn.focus();
+  };
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && overlay.classList.contains('is-open')) closeDrawer();
+  });
 
   toggleBtn.addEventListener('click', openDrawer);
   if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
@@ -493,45 +510,15 @@ function initMobileNav() {
  * Hero Category Selector: "¿Qué quieres proteger hoy?"
  */
 function initHeroCategorySelector() {
-  const buttons = document.querySelectorAll('.hero-tag-btn');
-  if (!buttons.length) return;
-
-  buttons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const target = btn.dataset.protectTarget; // e.g. "salud", "auto", "empresa", "equipo", etc.
-
-      // Scroll to cotizador or portafolio
-      if (target === 'auto') {
-        const cotizador = document.getElementById('cotizador');
-        if (cotizador) {
-          cotizador.scrollIntoView({ behavior: 'smooth' });
-          switchCotizadorTab('autos');
-        }
-      } else if (target === 'salud') {
-        const cotizador = document.getElementById('cotizador');
-        if (cotizador) {
-          cotizador.scrollIntoView({ behavior: 'smooth' });
-          switchCotizadorTab('salud');
-        }
-      } else if (target === 'empresa') {
-        const portafolio = document.getElementById('portafolio');
-        if (portafolio) {
-          portafolio.scrollIntoView({ behavior: 'smooth' });
-          switchPortfolioTab('empresariales');
-        }
-      } else if (target === 'equipo') {
-        const portafolio = document.getElementById('portafolio');
-        if (portafolio) {
-          portafolio.scrollIntoView({ behavior: 'smooth' });
-          switchPortfolioTab('colectivas');
-        }
+  document.querySelectorAll('.hero-tag-btn').forEach(btn => {
+    btn.addEventListener('click', (event) => {
+      event.preventDefault();
+      const target = btn.dataset.protectTarget;
+      if (target === 'auto' || target === 'salud') {
+        window.location.assign(`/cotizador/?tipo=${target === 'auto' ? 'autos' : 'salud'}`);
       } else {
-        const portafolio = document.getElementById('portafolio');
-        if (portafolio) {
-          portafolio.scrollIntoView({ behavior: 'smooth' });
-          switchPortfolioTab('personas');
-        }
+        const category = target === 'empresa' ? 'empresariales' : target === 'equipo' ? 'colectivas' : 'personas';
+        window.location.assign(`/polizas/?categoria=${category}`);
       }
     });
   });
@@ -545,7 +532,10 @@ function initPortfolioTabs() {
   const cardsContainer = document.getElementById('portfolioCardsGrid');
   if (!tabButtons.length || !cardsContainer) return;
 
-  renderPortfolioCards('personas');
+  const category = new URLSearchParams(window.location.search).get('categoria');
+  const initialCategory = Object.hasOwn(insuranceData, category) ? category : 'personas';
+  tabButtons.forEach(btn => btn.classList.toggle('is-active', btn.dataset.category === initialCategory));
+  renderPortfolioCards(initialCategory);
 
   tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -642,6 +632,9 @@ function initCotizadoresSection() {
     tabAutos.addEventListener('click', () => switchCotizadorTab('autos'));
     tabSalud.addEventListener('click', () => switchCotizadorTab('salud'));
   }
+
+  const initialType = new URLSearchParams(window.location.search).get('tipo');
+  if (initialType === 'salud' || initialType === 'autos') switchCotizadorTab(initialType);
 
   // Format Placa Input (e.g. ABC123 -> ABC-123)
   const placaInput = document.getElementById('cotizAutoPlaca');
@@ -937,50 +930,6 @@ function initContactForm() {
 /**
  * Directorio Modal Flotante (Botón flotante "Directorio 24/7")
  */
-function initDirectoryModal() {
-  const modal = document.getElementById('directoryModal');
-  const openBtns = document.querySelectorAll('[data-open-directory]');
-  const closeBtn = document.getElementById('directoryModalClose');
-  const listContainer = document.getElementById('directoryModalList');
-
-  if (!modal) return;
-
-  if (listContainer) {
-    listContainer.innerHTML = insurersDirectory.map(ins => `
-      <div class="dir-modal-item">
-        <div class="dir-modal-left">
-          <span class="dir-modal-badge" style="background:${ins.logoColor}; color:#fff;">
-            ${ins.name.substring(0, 1)}
-          </span>
-          <div>
-            <div class="dir-modal-name">${ins.name}</div>
-            <div class="dir-modal-phone">${ins.nationalPhone}</div>
-          </div>
-        </div>
-        <a href="${ins.cellDial}" class="btn btn-call-sm">
-          <span>Llamar ${ins.shortCode}</span>
-        </a>
-      </div>
-    `).join('');
-  }
-
-  const openModal = () => {
-    modal.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeModal = () => {
-    modal.classList.remove('is-open');
-    document.body.style.overflow = '';
-  };
-
-  openBtns.forEach(b => b.addEventListener('click', openModal));
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-  });
-}
-
 /**
  * Cotizador Modal General
  */

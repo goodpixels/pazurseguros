@@ -1,0 +1,11 @@
+node_modules/
+.netlify/
+# Generated HTML entries; edit src/page-template.html and scripts/generate-pages.mjs.
+/polizas/
+/cotizador/
+/como-trabajamos/
+/siniestros/
+/nosotros/
+/blog/
+/preguntas-frecuentes/
+/contactar/

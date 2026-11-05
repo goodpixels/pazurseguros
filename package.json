@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "node -e \"const fs = require('fs'); if (fs.existsSync('Index.html') && !fs.existsSync('index.html')) fs.copyFileSync('Index.html', 'index.html');\"",
+    "prebuild": "node scripts/generate-pages.mjs",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predev": "node scripts/generate-pages.mjs"
   },
   "devDependencies": {
     "vite": "^6.2.0"
