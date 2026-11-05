@@ -766,7 +766,7 @@ button {
   display: flex;
   gap: 24px;
   width: max-content;
-  animation: tickerSlide 35s linear infinite;
+  animation: tickerSlide var(--ticker-duration, 120s) linear infinite;
 }
 
 .ticker-track:hover {
@@ -775,7 +775,7 @@ button {
 
 @keyframes tickerSlide {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(calc(-50% - 12px)); }
 }
 
 .ally-logo-badge {
@@ -2539,3 +2539,11 @@ body:has(.siniestros-section) .navbar-pill,
 body:has(.siniestros-section) .navbar-pill.is-scrolled {
   background-color: rgba(255, 255, 255, 0.3);
 }
+
+.ticker-track-wrap:hover .ticker-track, .ticker-track-wrap:focus-within .ticker-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none !important; } .ticker-track-wrap { overflow-x: auto; } }
+
+/* Reserve equal slots so external brand artwork cannot change the ticker rhythm. */
+.ally-logo-badge { flex: 0 0 270px; justify-content: center; min-height: 64px; }
+.ally-svg-logo { width: 112px; height: 36px; object-fit: contain; border-radius: 0; }
+.ally-logo-badge:has(.ally-svg-logo) > span { font-size: 0.8rem; white-space: normal; max-width: 104px; }

@@ -437,6 +437,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.replace(legacyRoutes[window.location.hash.slice(1)]);
     return;
   }
+  initAlliesTicker();
   initNavbarScroll();
   initMobileNav();
   initHeroCategorySelector();
@@ -1079,4 +1080,19 @@ function initScrollAnimations() {
   });
 
   elements.forEach(el => observer.observe(el));
+}
+
+
+// Keep the same gentle speed across browser widths and after logos finish loading.
+function initAlliesTicker() {
+  const track = document.querySelector('.ticker-track');
+  if (!track) return;
+  const updateSpeed = () => {
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+    const distance = (track.scrollWidth + gap) / 2;
+    track.style.setProperty('--ticker-duration', `${distance / 20}s`);
+  };
+  updateSpeed();
+  new ResizeObserver(updateSpeed).observe(track);
+  document.fonts?.ready.then(updateSpeed);
 }
