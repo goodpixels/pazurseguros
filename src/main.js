@@ -1,385 +1,579 @@
 /**
- * PAZUR SEGUROS - MEDELLÍN, COLOMBIA
- * Modern interactive scripts: Floaty animations, Portfolio filtering,
- * Interactive bundle builder, Quote modal & WhatsApp dispatcher.
+ * PAZUR SEGUROS - MEDELLÍN & RIONEGRO, COLOMBIA
+ * Modern interactive scripts: 14 sections support, Hero category selector,
+ * Cotizador con mini-quiz (Autos & Salud), Directorio 24/7 de aseguradoras,
+ * Timeline animada, Portafolio completo (20 pólizas), Formulario y Modales.
  */
 
-// Portfolio Data based strictly on Pazur Seguros official flyers
+// 1. Portafolio Oficial de 20 Pólizas (9 Personas, 5 Empresa, 6 Equipo)
 export const insuranceData = {
   personas: [
     {
       id: "salud-personas",
-      title: "Salud y Medicina Prepagada",
-      tag: "Personas & Familia",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481831/card-salud_xgqswv.jpg",
-      highlight: "Desde $92.000 / mes (para dos personas)",
-      desc: "Acceso preferencial a las mejores clínicas de Medellín y Colombia. Consultas sin copagos excesivos y cobertura hospitalaria integral.",
+      title: "Salud",
+      tag: "Para ti y los tuyos",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849134/young-family-with-their-sons-home-having-fun_fdtwty.jpg",
+      highlight: "Atención oportuna y especialistas",
+      badge: "Desde $92.000 / mes (2 personas)",
+      desc: "Atención médica oportuna y acceso a especialistas para ti y tu familia.",
       details: [
-        "Planes de medicina prepagada y pólizas de hospitalización",
-        "Atención médica domiciliaria y urgencias 24/7",
-        "Cobertura en maternidad, cirugías y tratamientos de alto costo",
-        "Acceso directo a especialistas sin remisión previa",
-        "Alianzas con SURA, Allianz, Seguros Bolívar y AXA Colpatria"
+        "Consultas directas con especialistas sin remisiones ni trámites demorados",
+        "Habitación individual en caso de hospitalización y urgencias 24/7",
+        "Cobertura en maternidad, exámenes diagnósticos avanzados y cirugías",
+        "Atención médica domiciliaria y orientación telefónica continua",
+        "Comparamos opciones con SURA, Allianz, Seguros Bolívar y más"
       ]
     },
     {
-      id: "auto-personas",
-      title: "Autos y Motos Todo Riesgo",
-      tag: "Movilidad Segura",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481830/card-auto_prg9ma.jpg",
-      highlight: "Asistencia vial 24/7 en carretera",
-      desc: "Protección total frente a colisión, hurto, daños a terceros y pérdida total con grúa inmediata y carro sustituto.",
-      details: [
-        "Responsabilidad Civil Extracontractual (RCE) de amplia cobertura",
-        "Pérdida total y parcial por daños o hurto",
-        "Vehículo de reemplazo mientras reparan el tuyo",
-        "Conductor elegido ilimitado y grúa nacional",
-        "Opciones con y sin deducible según tu presupuesto"
-      ]
-    },
-    {
-      id: "hogar-mascotas",
-      title: "Hogar y Mascotas",
-      tag: "Tranquilidad en Casa",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481832/card-hogar_jqcyxg.jpg",
-      highlight: "Estructura + Contenidos + Peludos",
-      desc: "Tu patrimonio y tus seres queridos protegidos frente a sismo, incendios, agua, hurto y urgencias veterinarias.",
-      details: [
-        "Cobertura de estructura (terremoto, incendio, granizada)",
-        "Amparo para electrodomésticos, muebles y equipos electrónicos",
-        "Plomería, cerrajería y electricidad de emergencia 24/7",
-        "Gastos médicos veterinarios por accidente o enfermedad",
-        "Responsabilidad civil por daños que cause tu mascota"
-      ]
-    },
-    {
-      id: "vida-accidentes",
-      title: "Vida & Accidentes Personales",
-      tag: "Protección Familiar",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481830/hero-family_gkfhsg.jpg",
-      highlight: "Respaldo financiero garantizado",
-      desc: "Garantiza el futuro educativo de tus hijos y la estabilidad de tu familia ante cualquier eventualidad o invalidez.",
+      id: "vida-personas",
+      title: "Vida",
+      tag: "Para ti y los tuyos",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849128/juliane-liebermann-O-RKu3Aqnsw-unsplash_rzrt2d.jpg",
+      highlight: "Respaldo para tus sueños familiares",
+      badge: "Protección financiera",
+      desc: "Un respaldo económico para que los sueños de tu familia sigan su curso.",
       details: [
         "Indemnización por fallecimiento por cualquier causa",
-        "Amparo automático de incapacidad total y permanente",
-        "Renta diaria por hospitalización",
+        "Amparo por incapacidad total y permanente",
         "Anticipo por enfermedades graves (cáncer, infarto, ACV)",
-        "Planes flexibles con ahorro o cobertura pura"
+        "Garantía para educación de tus hijos y metas a largo plazo",
+        "Planes adaptados a tu presupuesto y etapa familiar"
+      ]
+    },
+    {
+      id: "accidentes-personas",
+      title: "Accidentes personales",
+      tag: "Para ti y los tuyos",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849133/holly-mandarich-UVyOfX3v0Ls-unsplash_bg1e5c.jpg",
+      highlight: "Apoyo ante imprevistos",
+      badge: "Cobertura inmediata",
+      desc: "Apoyo económico ante lesiones o incapacidad por un accidente.",
+      details: [
+        "Reembolso de gastos médicos de urgencia por accidente",
+        "Renta diaria por hospitalización o reposo médico",
+        "Indemnización por desmembración o invalidez accidental",
+        "Protección durante prácticas deportivas recreativas y traslados",
+        "Emisión sencilla y sin trámites médicos complejos"
+      ]
+    },
+    {
+      id: "hogar-personas",
+      title: "Hogar",
+      tag: "Para ti y los tuyos",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1791481832/card-hogar_jqcyxg.jpg",
+      highlight: "Estructura + Contenidos",
+      badge: "Tu casa 100% protegida",
+      desc: "Tu casa y todo lo que has construido, protegidos frente a imprevistos.",
+      details: [
+        "Cobertura frente a terremoto, sismo, incendio e inundaciones",
+        "Protección contra hurto calificado y daños a electrodomésticos",
+        "Asistencia de plomería, cerrajería y electricidad de emergencia 24/7",
+        "Responsabilidad civil familiar por daños causados a vecinos o terceros",
+        "Planes flexibles para propietarios o inquilinos arrendatarios"
+      ]
+    },
+    {
+      id: "autos-personas",
+      title: "Autos y motos",
+      tag: "Para ti y los tuyos",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849139/junior-reis-98AVD0fctzA-unsplash_odwhu8.jpg",
+      highlight: "Rueda tranquilo 24/7",
+      badge: "Asistencia en carretera",
+      desc: "Rueda tranquilo con asistencia en carretera y respaldo ante terceros.",
+      details: [
+        "Responsabilidad Civil Extracontractual de amplia cobertura",
+        "Pérdida total y parcial por daños o hurto",
+        "Grúa nacional, conductor elegido y carro de reemplazo",
+        "Asistencia jurídica y acompañamiento telefónico ante un choque",
+        "Comparamos tarifas con o sin deducible según tu conveniencia"
+      ]
+    },
+    {
+      id: "mascotas-personas",
+      title: "Mascotas",
+      tag: "Para ti y los tuyos",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1791481831/vision-dog_hithzu.jpg",
+      highlight: "Cuidado para quien es familia",
+      badge: "Urgencias veterinarias",
+      desc: "Cuidado veterinario para quien también es parte de la familia.",
+      details: [
+        "Consultas veterinarias por accidente o enfermedad imprevista",
+        "Exámenes de laboratorio, medicamentos y cirugías",
+        "Responsabilidad civil por daños que cause tu mascota a terceros",
+        "Servicios exequiales y de eutanasia asistida con respeto y dignidad",
+        "Red aliada de clínicas veterinarias en el Valle de Aburrá y Oriente"
+      ]
+    },
+    {
+      id: "bicicletas-personas",
+      title: "Bicicletas",
+      tag: "Para ti y los tuyos",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849133/holly-mandarich-UVyOfX3v0Ls-unsplash_bg1e5c.jpg",
+      highlight: "Pedalea con confianza",
+      badge: "Robo y accidentes",
+      desc: "Protección ante daño o hurto para que sigas pedaleando.",
+      details: [
+        "Cobertura por hurto calificado en ciudad y carretera",
+        "Daños parciales o totales por caída o colisión",
+        "Responsabilidad civil por accidentes causados a peatones",
+        "Asistencia de traslado y transporte de la bicicleta si se vara",
+        "Aplica para bicicletas de ruta, montaña, urbanas y eléctricas"
+      ]
+    },
+    {
+      id: "responsabilidad-profesional",
+      title: "Responsabilidad profesional",
+      tag: "Para ti y los tuyos",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849136/christin-hume-Hcfwew744z4-unsplash_a7obzm.jpg",
+      highlight: "Blindaje a tu profesión",
+      badge: "Respaldo jurídico",
+      desc: "Respaldo ante reclamaciones derivadas del ejercicio de tu profesión.",
+      details: [
+        "Amparo ante reclamaciones de clientes por errores u omisiones involuntarias",
+        "Gastos de defensa legal, abogados especializados y costas judiciales",
+        "Ideal para médicos, odontólogos, contadores, abogados, ingenieros y arquitectos",
+        "Protección a tu patrimonio personal frente a demandas civiles",
+        "Asesoría previa para evaluar los riesgos particulares de tu ejercicio"
+      ]
+    },
+    {
+      id: "cumplimiento-personas",
+      title: "Cumplimiento",
+      tag: "Para ti y los tuyos",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849136/christin-hume-Hcfwew744z4-unsplash_a7obzm.jpg",
+      highlight: "Garantía contractual ágil",
+      badge: "Licitaciones y contratos",
+      desc: "La garantía que necesitas para firmar contratos con confianza.",
+      details: [
+        "Pólizas para personas naturales contratistas o consultores",
+        "Garantías de cumplimiento, buen manejo de anticipo y calidad del servicio",
+        "Trámite rápido para contratos con entidades públicas (SECOP) y privadas",
+        "Estudio ágil de cupos y emisión en tiempos récord",
+        "Acompañamiento en el cumplimiento estricto de los términos de referencia"
       ]
     }
   ],
   empresariales: [
     {
       id: "todo-riesgo-empresa",
-      title: "Todo Riesgo Empresarial",
-      tag: "Pyme & Corporativo",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481831/card-empresa_msjtkz.jpg",
-      highlight: "Blindaje operativo y patrimonial",
-      desc: "Protege las instalaciones físicas, maquinaria, mercancía y lucro cesante de tu empresa en Medellín y toda Colombia.",
+      title: "Todo riesgo empresarial",
+      tag: "Para tu empresa",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1791481834/Banner2_cyfnca.jpg",
+      highlight: "Blindaje de tu operación",
+      badge: "Instalaciones & Mercancía",
+      desc: "Protege tus instalaciones, equipos y mercancía, y la continuidad de tu operación.",
       details: [
-        "Daños materiales por incendio, explosión y eventos de la naturaleza",
-        "Cobertura de lucro cesante (gastos fijos y utilidades si paras)",
-        "Hurto calificado de mercancías y materias primas",
-        "Avería de maquinaria y equipos electrónicos de oficina",
-        "Asistencia técnica para emergencias en tu sede"
+        "Daños materiales por incendio, explosión, terremoto o inundación",
+        "Amparo de lucro cesante: cubrimiento de gastos fijos y utilidades si paras",
+        "Hurto de mercancías, materias primas y dinero en caja",
+        "Avería de maquinaria y equipos electrónicos de cómputo",
+        "Asistencia técnica de emergencia en instalaciones comerciales"
       ]
     },
     {
-      id: "responsabilidad-civil",
-      title: "Responsabilidad Civil (RCE)",
-      tag: "Respaldo Legal",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481830/card-auto_prg9ma.jpg",
-      highlight: "Amparo ante reclamos de terceros",
-      desc: "Cubre perjuicios patrimoniales y extrapatrimoniales causados a clientes, proveedores o visitantes en tu operación.",
+      id: "responsabilidad-civil-empresa",
+      title: "Responsabilidad civil",
+      tag: "Para tu empresa",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849141/portrait-handsome-man-white-tee-sunglasses-holds-backpack-passport-tickets-poses-near-airport-good-mood_kk6afw.jpg",
+      highlight: "Respaldo legal y económico",
+      badge: "Daños a terceros",
+      desc: "Respaldo legal y económico ante daños a terceros.",
       details: [
-        "RCE de predios, labores y operaciones comerciales",
+        "Responsabilidad civil de predios, labores y operaciones comerciales",
         "RCE patronal frente a accidentes laborales de colaboradores",
-        "RCE de productos y servicios entregados",
-        "Gastos de defensa jurídica y honorarios de abogados",
-        "Cumplimiento de requisitos para licitaciones y contratos"
+        "RCE de productos elaborados y servicios suministrados",
+        "Gastos de defensa jurídica y representación legal calificada",
+        "Requisito indispensable para contratar con grandes corporaciones"
       ]
     },
     {
-      id: "cumplimiento-fraudes",
-      title: "Pólizas de Cumplimiento & Fraude",
-      tag: "Contratación Segura",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481831/card-empresa_msjtkz.jpg",
-      highlight: "Garantía contractual y financiera",
-      desc: "Agilidad en expedición de garantías para contratos privados, estatales (SECOP) y protección ante delitos económicos.",
+      id: "cumplimiento-empresa",
+      title: "Cumplimiento",
+      tag: "Para tu empresa",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849136/christin-hume-Hcfwew744z4-unsplash_a7obzm.jpg",
+      highlight: "Garantías gestionadas a tiempo",
+      badge: "Licitaciones y contratos",
+      desc: "Garantías para licitaciones y contratos, gestionadas a tiempo.",
       details: [
-        "Seriedad de la oferta y buen manejo del anticipo",
-        "Cumplimiento del contrato y calidad del servicio o bienes",
-        "Pago de salarios y prestaciones sociales",
-        "Póliza de infidelidad de empleados y delitos financieros",
-        "Estudio ágil de cupos y emisión prioritaria"
+        "Seriedad de la oferta y garantía de cumplimiento de contrato",
+        "Buen manejo y correcta inversión del anticipo",
+        "Pago de salarios, prestaciones sociales e indemnizaciones",
+        "Calidad del servicio y estabilidad de obras civiles",
+        "Gestión expedita con las mejores aseguradoras del país"
       ]
     },
     {
-      id: "flotas-transporte",
-      title: "Flota de Transporte & Carga",
-      tag: "Logística y Movilidad",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481830/card-auto_prg9ma.jpg",
-      highlight: "Tarifas colectivas corporativas",
-      desc: "Asegura los vehículos de tu empresa y el transporte de mercancías a nivel local, regional y nacional con monitoreo.",
+      id: "fraudes-empresa",
+      title: "Fraudes",
+      tag: "Para tu empresa",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849136/christin-hume-Hcfwew744z4-unsplash_a7obzm.jpg",
+      highlight: "Protección digital y financiera",
+      badge: "Fraude y ciberriesgo",
+      desc: "Protección frente a pérdidas por fraude, incluido el entorno digital.",
       details: [
-        "Póliza todo riesgo para camiones, furgones y flotillas corporativas",
-        "Cobertura de transporte terrestre de mercancías",
-        "Asistencia mecánica pesada 24/7 y grúas especializadas",
-        "Tarificación preferencial por volumen de vehículos",
-        "Administración centralizada de vencimientos y pólizas"
+        "Infidelidad de empleados o colaboradores clave",
+        "Falsificación o alteración de instrumentos de pago y cheques",
+        "Fraude computarizado y transferencias bancarias no autorizadas",
+        "Pérdida de dinero y valores en tránsito o en instalaciones",
+        "Respaldo ante delitos financieros que pongan en riesgo la empresa"
+      ]
+    },
+    {
+      id: "flota-transporte",
+      title: "Flota de transporte",
+      tag: "Para tu empresa",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849139/junior-reis-98AVD0fctzA-unsplash_odwhu8.jpg",
+      highlight: "Los vehículos que mueven tu negocio",
+      badge: "Tarifas corporativas",
+      desc: "Cobertura integral para los vehículos que mueven tu negocio.",
+      details: [
+        "Pólizas todo riesgo para camiones, utilitarios y vehículos de carga",
+        "Amparo ante pérdidas totales o parciales por choque o hurto",
+        "Cobertura de transporte de mercancías nacional y urbano",
+        "Asistencia vial para vehículos comerciales y grúas especializadas",
+        "Administración centralizada de vencimientos y trámites con Pazur"
       ]
     }
   ],
   colectivas: [
     {
       id: "salud-colectiva",
-      title: "Salud Colectiva & PAC SURA",
-      tag: "Beneficio para Empleados",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481831/card-salud_xgqswv.jpg",
-      highlight: "Retención de talento y bienestar",
-      desc: "Planes corporativos de salud y Planes de Atención Complementaria (PAC SURA) a tarifas grupales altamente competitivas.",
+      title: "Salud colectiva",
+      tag: "Para tu equipo",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849137/happy-stylish-caucasian-man-with-backpack-travel-rice-plantation-making-self-portrai-memories_izcg8e.jpg",
+      highlight: "Bienestar con condiciones de grupo",
+      badge: "Beneficio para colaboradores",
+      desc: "Bienestar médico para tus colaboradores con condiciones de grupo.",
       details: [
-        "Tarifas preferenciales por número de asegurados",
-        "Inclusión de cónyuge e hijos del colaborador",
-        "Convenios con la mejor red hospitalaria de Antioquia",
-        "Deducción tributaria de bienestar para la empresa",
-        "Acompañamiento directo de Pazur en la gestión de citas"
+        "Planes de salud corporativos con tarifas preferenciales negociadas",
+        "Posibilidad de extender la cobertura a cónyuge e hijos",
+        "Acceso directo a especialistas y la mejor red hospitalaria",
+        "Beneficios tributarios de bienestar social para la empresa",
+        "Acompañamiento personalizado de Pazur en la gestión de citas"
       ]
     },
     {
-      id: "vida-grupo",
-      title: "Vida Grupo Corporativo",
-      tag: "Seguridad para el Equipo",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481830/hero-family_gkfhsg.jpg",
-      highlight: "Protección integral a bajo costo",
-      desc: "Brinda un respaldo económico a las familias de tus trabajadores ante imprevistos, accidentes o fallecimiento.",
+      id: "vida-colectiva",
+      title: "Vida colectiva",
+      tag: "Para tu equipo",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849132/ta-focando-LOuffSFpWQI-unsplash_ngyksr.jpg",
+      highlight: "Respaldo para sus familias",
+      badge: "Protección integral",
+      desc: "Respaldo para las familias de tu equipo.",
       details: [
-        "Fallecimiento por cualquier causa e incapacidad",
-        "Indemnizaciones proporcionales al salario o valor pactado",
-        "Facilidad de pago descontado por nómina o asumido por la empresa",
-        "Sin exámenes médicos engorrosos en grupos estándar",
-        "Respaldo de las mejores aseguradoras del país"
+        "Indemnización a beneficiarios por fallecimiento por cualquier causa",
+        "Amparo por incapacidad total y permanente",
+        "Planes con valor asegurado fijo o múltiplo de salarios",
+        "Opciones con pago patronal o deducción por nómina",
+        "Emisión colectiva ágil sin exámenes médicos individuales"
       ]
     },
     {
-      id: "autos-colectivos",
-      title: "Flotilla de Autos Colectiva",
-      tag: "Beneficio Empleados",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481830/card-auto_prg9ma.jpg",
-      highlight: "Descuentos de hasta el 25%",
-      desc: "Permite a tus colaboradores asegurar sus vehículos particulares con tarifas corporativas negociadas por Pazur.",
+      id: "autos-colectiva",
+      title: "Autos y motos colectiva",
+      tag: "Para tu equipo",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849139/junior-reis-98AVD0fctzA-unsplash_odwhu8.jpg",
+      highlight: "Descuento por volumen",
+      badge: "Vehículos del grupo",
+      desc: "Protección para los vehículos de tu organización o grupo.",
       details: [
-        "Mismas coberturas premium todo riesgo a menor costo",
-        "Descuento por volumen transferido directamente al colaborador",
-        "Planes con deducción por nómina o pago particular",
-        "Asistencia de grúa y taller especializado",
-        "Manejo de siniestros asistido por nuestro equipo"
+        "Tarifas corporativas exclusivas para empleados y directivos",
+        "Mismas coberturas todo riesgo premium a un costo menor",
+        "Facilidad de pago descontado por nómina o pago directo",
+        "Asistencia en carretera 24/7 y grúa nacional",
+        "Manejo de siniestros coordinado por un asesor Pazur dedicado"
       ]
     },
     {
-      id: "accidentes-escolares",
-      title: "Accidentes Escolares y Laborales",
-      tag: "Instituciones & Gremios",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/v1791481831/vision-dog_hithzu.jpg",
-      highlight: "Respuesta inmediata en urgencias",
-      desc: "Pólizas colectivas de accidentes para colegios, universidades, academias deportivas y eventos corporativos.",
+      id: "hogar-colectiva",
+      title: "Hogar colectiva",
+      tag: "Para tu equipo",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1791481832/card-hogar_jqcyxg.jpg",
+      highlight: "Beneficios de grupo para la casa",
+      badge: "Tranquilidad familiar",
+      desc: "Beneficios en protección del hogar para los miembros de tu grupo.",
       details: [
-        "Gastos médicos de urgencia por accidente",
-        "Indemnización por desmembración o invalidez",
-        "Amparo durante traslados, eventos y viajes institucionales",
-        "Atención en clínicas de primer nivel sin trámites dilatados",
-        "Carnetización física y digital para cada beneficiario"
+        "Tarifas preferenciales en seguros de vivienda y contenidos",
+        "Protección contra terremoto, incendio y hurto",
+        "Asistencias domiciliarias de cerrajería, plomería y electricidad",
+        "Disponible para fondos de empleados, cooperativas y gremios",
+        "Un gran incentivo de bienestar y retención de talento"
+      ]
+    },
+    {
+      id: "accidentes-colectiva",
+      title: "Accidentes colectiva",
+      tag: "Para tu equipo",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849133/holly-mandarich-UVyOfX3v0Ls-unsplash_bg1e5c.jpg",
+      highlight: "Cobertura para todo el equipo",
+      badge: "Eventos y labores",
+      desc: "Cobertura ante accidentes para todo tu equipo.",
+      details: [
+        "Atención médica de urgencia por accidentes en jornadas o traslados",
+        "Indemnización por invalidez accidental o desmembración",
+        "Ideal para empresas, eventos, colegios y academias",
+        "Carnetización y atención sin trámites dilatados",
+        "Excelente complemento a los amparos obligatorios de ley"
+      ]
+    },
+    {
+      id: "pac-sura",
+      title: "PAC SURA",
+      tag: "Para tu equipo",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849134/young-family-with-their-sons-home-having-fun_fdtwty.jpg",
+      highlight: "Mejora la atención en salud",
+      badge: "Plan Complementario",
+      desc: "El plan complementario que mejora la atención de salud de tu grupo.",
+      details: [
+        "Plan de Atención Complementaria SURA con tarifas de grupo",
+        "Habitación individual, acceso rápido a especialistas y red preferente",
+        "Articulación perfecta con la EPS SURA de tus colaboradores",
+        "Diferentes planes (Básico, Plus) según el presupuesto empresarial",
+        "Asesoría directa de Pazur para afiliar a tu equipo sin fricción"
       ]
     }
   ]
 };
 
-// Initial state for bundle builder
+// 2. Directorio Oficial de Aseguradoras Aliadas y Líneas 24/7
+export const insurersDirectory = [
+  {
+    id: "sura",
+    name: "SURA",
+    shortCode: "#888",
+    nationalPhone: "01 8000 51 8888",
+    cellDial: "tel:#888",
+    logoColor: "#0033A0",
+    specialty: "Líder en Salud, Autos y Vida",
+    description: "Asistencia de grúa, choque, urgencias médicas y hogar 24/7."
+  },
+  {
+    id: "mapfre",
+    name: "MAPFRE",
+    shortCode: "#324",
+    nationalPhone: "01 8000 919 738",
+    cellDial: "tel:#324",
+    logoColor: "#D81E05",
+    specialty: "Autos, Empresas y Hogar",
+    description: "Atención inmediata en carretera y siniestros a nivel nacional."
+  },
+  {
+    id: "bolivar",
+    name: "Seguros Bolívar",
+    shortCode: "#322",
+    nationalPhone: "01 8000 123 322",
+    cellDial: "tel:#322",
+    logoColor: "#1B7E36",
+    specialty: "Salud, Vida, Autos y Cumplimiento",
+    description: "Asistencia verde 24 horas y orientación en accidentes."
+  },
+  {
+    id: "allianz",
+    name: "Allianz Colombia",
+    shortCode: "#265",
+    nationalPhone: "01 8000 513 888",
+    cellDial: "tel:#265",
+    logoColor: "#003780",
+    specialty: "Salud Premium, Autos y Empresas",
+    description: "Red médica nacional y asistencia vehicular de alta gama."
+  },
+  {
+    id: "liberty",
+    name: "Liberty Seguros",
+    shortCode: "#224",
+    nationalPhone: "01 8000 113 390",
+    cellDial: "tel:#224",
+    logoColor: "#1E2B4D",
+    specialty: "Autos, Cumplimiento y Todo Riesgo",
+    description: "Atención prioritaria en carretera y siniestros empresariales."
+  },
+  {
+    id: "sbs",
+    name: "SBS Seguros",
+    shortCode: "#727",
+    nationalPhone: "01 8000 522 727",
+    cellDial: "tel:#727",
+    logoColor: "#5A2B81",
+    specialty: "Patrimonio, Flotas y Cumplimiento",
+    description: "Línea rápida para reporte de daños, pólizas y asistencias."
+  },
+  {
+    id: "panamerican",
+    name: "Pan American Life",
+    shortCode: "01 8000 913 232",
+    nationalPhone: "01 8000 913 232",
+    cellDial: "tel:018000913232",
+    logoColor: "#0D5C75",
+    specialty: "Vida Individual y Colectiva",
+    description: "Especialistas en protección de vida y salud internacional."
+  },
+  {
+    id: "qualitas",
+    name: "Qualitas Seguros",
+    shortCode: "01 8000 180 044",
+    nationalPhone: "01 8000 180 044",
+    cellDial: "tel:018000180044",
+    logoColor: "#6C205E",
+    specialty: "Autos y Movilidad Especializada",
+    description: "Respaldo y grúa para vehículos particulares y de trabajo."
+  }
+];
+
+// Estado del Paquete Unificado
 let selectedBundle = ['salud', 'auto'];
 
 const bundleItems = [
-  { id: 'salud', name: 'Salud & Medicina Prepagada', icon: '🩺', price: 92000, label: 'Desde $92.000/mes' },
-  { id: 'auto', name: 'Autos & Motos Todo Riesgo', icon: '🚗', price: 120000, label: 'Protección 24/7' },
-  { id: 'hogar', name: 'Hogar & Estructura', icon: '🏠', price: 45000, label: 'Sismo y contenidos' },
-  { id: 'vida', name: 'Vida & Accidentes', icon: '🛡️', price: 40000, label: 'Respaldo familiar' },
-  { id: 'mascotas', name: 'Mascotas & Bicicletas', icon: '🐾', price: 28000, label: 'Veterinaria y hurto' },
-  { id: 'empresa', name: 'Empresa & Cumplimiento', icon: '🏢', price: 150000, label: 'RCE y todo riesgo' }
+  { id: 'salud', name: 'Salud & Medicina Prepagada', icon: '🩺', label: 'Desde $92.000/mes' },
+  { id: 'auto', name: 'Autos & Motos Todo Riesgo', icon: '🚗', label: 'Protección 24/7' },
+  { id: 'hogar', name: 'Hogar & Estructura', icon: '🏠', label: 'Sismo y contenidos' },
+  { id: 'vida', name: 'Vida & Sueños Familiares', icon: '🛡️', label: 'Respaldo futuro' },
+  { id: 'mascotas', name: 'Mascotas & Bicicletas', icon: '🐾', label: 'Veterinaria y hurto' },
+  { id: 'empresa', name: 'Empresa & Cumplimiento', icon: '🏢', label: 'RCE y todo riesgo' }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-  initHeroSlider();
-  initScrollAnimations();
   initNavbarScroll();
+  initMobileNav();
+  initHeroCategorySelector();
   initPortfolioTabs();
+  initCotizadoresSection();
+  initTimelineScroll();
+  initSiniestrosDirectory();
   initBundleBuilder();
   initFaqAccordion();
+  initContactForm();
+  initDirectoryModal();
   initQuoteModal();
   initPortfolioDetailsModal();
-  initMobileNav();
+  initScrollAnimations();
 });
 
 /**
- * 0. Hero Banner Slider with Crossfade, Autoplay, and Mobile Swipe
- */
-function initHeroSlider() {
-  const slides = document.querySelectorAll('.hero-slide');
-  const dots = document.querySelectorAll('.hero-dot');
-  const dotsNav = document.getElementById('heroSliderDots');
-  const slider = document.getElementById('heroSlider');
-  if (!slides.length) return;
-
-  let currentIndex = 0;
-  let autoTimer = null;
-  const SLIDE_DURATION = 7000;
-
-  function showSlide(index) {
-    if (index < 0) index = slides.length - 1;
-    if (index >= slides.length) index = 0;
-    currentIndex = index;
-
-    slides.forEach((s, i) => {
-      s.classList.toggle('is-active', i === currentIndex);
-    });
-
-    dots.forEach((d, i) => {
-      const isActive = (i === currentIndex);
-      d.classList.toggle('is-active', isActive);
-      d.setAttribute('aria-selected', isActive ? 'true' : 'false');
-      
-      const fill = d.querySelector('.hero-dot-fill');
-      if (fill) {
-        fill.style.animation = 'none';
-        void fill.offsetWidth; // force reflow
-        if (isActive) {
-          fill.style.animation = `heroDotProgress ${SLIDE_DURATION}ms linear forwards`;
-        }
-      }
-    });
-  }
-
-  function startAutoplay() {
-    stopAutoplay();
-    autoTimer = setInterval(() => {
-      showSlide(currentIndex + 1);
-    }, SLIDE_DURATION);
-  }
-
-  function stopAutoplay() {
-    if (autoTimer) {
-      clearInterval(autoTimer);
-      autoTimer = null;
-    }
-  }
-
-  dots.forEach(dot => {
-    dot.addEventListener('click', () => {
-      const idx = parseInt(dot.dataset.slide, 10);
-      showSlide(idx);
-      startAutoplay();
-    });
-  });
-
-  if (dotsNav) {
-    dotsNav.addEventListener('mouseenter', stopAutoplay);
-    dotsNav.addEventListener('mouseleave', startAutoplay);
-  }
-
-  if (slider) {
-    // Mobile touch swipe gestures
-    let touchStartX = 0;
-    slider.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].clientX;
-      stopAutoplay();
-    }, { passive: true });
-
-    slider.addEventListener('touchend', (e) => {
-      const touchEndX = e.changedTouches[0].clientX;
-      const diff = touchEndX - touchStartX;
-      if (Math.abs(diff) > 40) {
-        if (diff > 0) {
-          showSlide(currentIndex - 1);
-        } else {
-          showSlide(currentIndex + 1);
-        }
-      }
-      startAutoplay();
-    }, { passive: true });
-  }
-
-  showSlide(0);
-  startAutoplay();
-}
-
-/**
- * 1. Floaty Appear Animations (IntersectionObserver)
- */
-function initScrollAnimations() {
-  const elements = document.querySelectorAll('.reveal-fade-up');
-  if (!elements.length) return;
-
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-revealed');
-        obs.unobserve(entry.target);
-      }
-    });
-  }, {
-    root: null,
-    rootMargin: '0px 0px -40px 0px',
-    threshold: 0.12
-  });
-
-  elements.forEach(el => observer.observe(el));
-}
-
-/**
- * 2. Navbar Floating Elevation on Scroll (Brand dark grey)
+ * Navbar elevation on scroll
  */
 function initNavbarScroll() {
   const navbar = document.getElementById('navbarPill');
   if (!navbar) return;
 
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
+    if (window.scrollY > 30) {
       navbar.classList.add('is-scrolled');
     } else {
       navbar.classList.remove('is-scrolled');
     }
+  }, { passive: true });
+}
+
+/**
+ * Mobile Navigation Drawer
+ */
+function initMobileNav() {
+  const toggleBtn = document.getElementById('mobileMenuToggle');
+  const overlay = document.getElementById('mobileNavOverlay');
+  const closeBtn = document.getElementById('mobileNavClose');
+  const links = document.querySelectorAll('.mobile-nav-link');
+
+  if (!toggleBtn || !overlay) return;
+
+  const openDrawer = () => overlay.classList.add('is-open');
+  const closeDrawer = () => overlay.classList.remove('is-open');
+
+  toggleBtn.addEventListener('click', openDrawer);
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeDrawer();
+  });
+
+  links.forEach(link => {
+    link.addEventListener('click', closeDrawer);
   });
 }
 
 /**
- * 3. Portfolio Category Tabs (Personas, Empresariales, Colectivas)
+ * Hero Category Selector: "¿Qué quieres proteger hoy?"
+ */
+function initHeroCategorySelector() {
+  const buttons = document.querySelectorAll('.hero-tag-btn');
+  if (!buttons.length) return;
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = btn.dataset.protectTarget; // e.g. "salud", "auto", "empresa", "equipo", etc.
+
+      // Scroll to cotizador or portafolio
+      if (target === 'auto') {
+        const cotizador = document.getElementById('cotizador');
+        if (cotizador) {
+          cotizador.scrollIntoView({ behavior: 'smooth' });
+          switchCotizadorTab('autos');
+        }
+      } else if (target === 'salud') {
+        const cotizador = document.getElementById('cotizador');
+        if (cotizador) {
+          cotizador.scrollIntoView({ behavior: 'smooth' });
+          switchCotizadorTab('salud');
+        }
+      } else if (target === 'empresa') {
+        const portafolio = document.getElementById('portafolio');
+        if (portafolio) {
+          portafolio.scrollIntoView({ behavior: 'smooth' });
+          switchPortfolioTab('empresariales');
+        }
+      } else if (target === 'equipo') {
+        const portafolio = document.getElementById('portafolio');
+        if (portafolio) {
+          portafolio.scrollIntoView({ behavior: 'smooth' });
+          switchPortfolioTab('colectivas');
+        }
+      } else {
+        const portafolio = document.getElementById('portafolio');
+        if (portafolio) {
+          portafolio.scrollIntoView({ behavior: 'smooth' });
+          switchPortfolioTab('personas');
+        }
+      }
+    });
+  });
+}
+
+/**
+ * Portafolio Category Tabs (Personas, Empresariales, Colectivas)
  */
 function initPortfolioTabs() {
   const tabButtons = document.querySelectorAll('.portfolio-tab-btn');
   const cardsContainer = document.getElementById('portfolioCardsGrid');
   if (!tabButtons.length || !cardsContainer) return;
 
-  // Render initial personas cards
   renderPortfolioCards('personas');
 
   tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       const category = btn.dataset.category;
       if (!category) return;
-
-      tabButtons.forEach(b => b.classList.remove('is-active'));
-      btn.classList.add('is-active');
-
-      // Subtle fade out then in
-      cardsContainer.style.opacity = '0';
-      cardsContainer.style.transform = 'translateY(10px)';
-      cardsContainer.style.transition = 'all 0.25s ease';
-
-      setTimeout(() => {
-        renderPortfolioCards(category);
-        cardsContainer.style.opacity = '1';
-        cardsContainer.style.transform = 'translateY(0)';
-      }, 250);
+      switchPortfolioTab(category);
     });
   });
+}
+
+function switchPortfolioTab(category) {
+  const tabButtons = document.querySelectorAll('.portfolio-tab-btn');
+  const cardsContainer = document.getElementById('portfolioCardsGrid');
+  if (!tabButtons.length || !cardsContainer) return;
+
+  tabButtons.forEach(b => {
+    b.classList.toggle('is-active', b.dataset.category === category);
+  });
+
+  cardsContainer.style.opacity = '0';
+  cardsContainer.style.transform = 'translateY(8px)';
+  cardsContainer.style.transition = 'all 0.22s ease';
+
+  setTimeout(() => {
+    renderPortfolioCards(category);
+    cardsContainer.style.opacity = '1';
+    cardsContainer.style.transform = 'translateY(0)';
+  }, 220);
 }
 
 function renderPortfolioCards(category) {
@@ -389,44 +583,223 @@ function renderPortfolioCards(category) {
   const items = insuranceData[category] || insuranceData.personas;
 
   container.innerHTML = items.map((item, index) => `
-    <article class="portfolio-card reveal-fade-up is-revealed delay-${index + 1}" data-card-id="${item.id}" data-category="${category}">
+    <article class="portfolio-card reveal-fade-up is-revealed" data-card-id="${item.id}" data-category="${category}">
       <div class="portfolio-card-media">
         <img src="${item.image}" alt="${item.title}" class="portfolio-card-img" loading="lazy" />
         <span class="portfolio-card-tag">${item.tag}</span>
+        ${item.badge ? `<span class="portfolio-card-badge-pill">${item.badge}</span>` : ''}
       </div>
       <div class="portfolio-card-body">
         <div>
           <div class="portfolio-card-title-row">
             <h3 class="portfolio-card-title">${item.title}</h3>
-            <button class="portfolio-card-arrow" aria-label="Ver detalles de ${item.title}">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </button>
           </div>
           <p class="portfolio-card-desc">${item.desc}</p>
         </div>
-        <div class="portfolio-card-badge-price">
-          ${item.highlight}
+        <div class="portfolio-card-footer-actions">
+          <button class="btn btn-card-learn" data-card-action="details" data-card-id="${item.id}" data-category="${category}">
+            <span>Conocer más</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+          <button class="btn btn-card-quote" data-card-action="quote" data-policy="${item.title}">
+            <span>Cotizar</span>
+          </button>
         </div>
       </div>
     </article>
   `).join('');
 
-  // Attach card click handlers for details modal
-  const cards = container.querySelectorAll('.portfolio-card');
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      const cardId = card.dataset.cardId;
-      const cat = card.dataset.category;
-      openDetailsModal(cardId, cat);
+  // Attach card click handlers
+  const detailsBtns = container.querySelectorAll('[data-card-action="details"]');
+  detailsBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openDetailsModal(btn.dataset.cardId, btn.dataset.category);
+    });
+  });
+
+  const quoteBtns = container.querySelectorAll('[data-card-action="quote"]');
+  quoteBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openQuoteModalWithPolicy(btn.dataset.policy);
     });
   });
 }
 
 /**
- * 4. Interactive Bundle Builder (Midlands Reference 2)
+ * Sección 5. Cotizadores Interactivos de Autos y Salud con Mini-Quiz
+ */
+function initCotizadoresSection() {
+  const tabAutos = document.getElementById('cotizadorTabAutos');
+  const tabSalud = document.getElementById('cotizadorTabSalud');
+  const formAutos = document.getElementById('formCotizadorAutos');
+  const formSalud = document.getElementById('formCotizadorSalud');
+
+  if (tabAutos && tabSalud) {
+    tabAutos.addEventListener('click', () => switchCotizadorTab('autos'));
+    tabSalud.addEventListener('click', () => switchCotizadorTab('salud'));
+  }
+
+  // Format Placa Input (e.g. ABC123 -> ABC-123)
+  const placaInput = document.getElementById('cotizAutoPlaca');
+  if (placaInput) {
+    placaInput.addEventListener('input', (e) => {
+      let val = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+      if (val.length > 6) val = val.substring(0, 6);
+      if (val.length > 3) {
+        val = val.substring(0, 3) + ' · ' + val.substring(3);
+      }
+      e.target.value = val;
+    });
+  }
+
+  // Autos form submission
+  if (formAutos) {
+    formAutos.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const placa = document.getElementById('cotizAutoPlaca').value || 'Sin placa';
+      const tipoVehiculo = document.querySelector('input[name="autoTipo"]:checked')?.value || 'Carro particular';
+      const nombre = document.getElementById('cotizAutoNombre').value;
+      const telefono = document.getElementById('cotizAutoTel').value;
+      const qPrioridad = document.querySelector('input[name="autoPrioridad"]:checked')?.value || 'Equilibrio costo/cobertura';
+      const qAsistencias = document.querySelector('input[name="autoAsistencias"]:checked')?.value || 'Sí, indispensable';
+      const qUso = document.querySelector('input[name="autoUso"]:checked')?.value || 'Particular';
+
+      showCotizadorConfirmation('autos', {
+        nombre,
+        telefono,
+        resumen: `Placa: ${placa} (${tipoVehiculo}) · Prioridad: ${qPrioridad} · Asistencias: ${qAsistencias} · Uso: ${qUso}`
+      });
+
+      // Dispatch to WhatsApp
+      const waMsg = `Hola Pazur Seguros! 🚗 Quisiera cotizar póliza para mi vehículo:%0A%0A• *Nombre:* ${encodeURIComponent(nombre)}%0A• *Teléfono:* ${encodeURIComponent(telefono)}%0A• *Placa:* ${encodeURIComponent(placa)}%0A• *Tipo:* ${encodeURIComponent(tipoVehiculo)}%0A• *Prioridad:* ${encodeURIComponent(qPrioridad)}%0A• *Asistencias:* ${encodeURIComponent(qAsistencias)}%0A• *Uso:* ${encodeURIComponent(qUso)}%0A%0A¿Podrían preparar mi cuadro comparativo entre SURA, MAPFRE, Bolívar y Allianz?`;
+
+      const sendWaBtn = document.getElementById('btnCotizAutosWa');
+      if (sendWaBtn) {
+        sendWaBtn.onclick = () => window.open(`https://wa.me/573054034164?text=${waMsg}`, '_blank');
+      }
+    });
+  }
+
+  // Salud form submission
+  if (formSalud) {
+    formSalud.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const personas = document.querySelector('input[name="saludPersonas"]:checked')?.value || '2 personas (pareja/familiar)';
+      const edades = document.getElementById('cotizSaludEdades').value || 'No especificadas';
+      const ciudad = document.getElementById('cotizSaludCiudad').value;
+      const nombre = document.getElementById('cotizSaludNombre').value;
+      const telefono = document.getElementById('cotizSaludTel').value;
+      const qPrioridad = document.querySelector('input[name="saludPrioridad"]:checked')?.value || 'Equilibrio precio/cobertura';
+      const qEps = document.querySelector('input[name="saludEps"]:checked')?.value || 'Sí';
+      const qTipoPlan = document.querySelector('input[name="saludTipoPlan"]:checked')?.value || 'Asesoría entre PAC y Prepagada';
+
+      showCotizadorConfirmation('salud', {
+        nombre,
+        telefono,
+        resumen: `${personas} · Edades: ${edades} · Ciudad: ${ciudad} · Prioridad: ${qPrioridad} · EPS: ${qEps}`
+      });
+
+      // Dispatch to WhatsApp
+      const waMsg = `Hola Pazur Seguros! 🩺 Quisiera cotizar plan de salud a mi medida:%0A%0A• *Nombre:* ${encodeURIComponent(nombre)}%0A• *Teléfono:* ${encodeURIComponent(telefono)}%0A• *Personas a asegurar:* ${encodeURIComponent(personas)}%0A• *Edades aproximadas:* ${encodeURIComponent(edades)}%0A• *Ciudad:* ${encodeURIComponent(ciudad)}%0A• *Prioridad:* ${encodeURIComponent(qPrioridad)}%0A• *Tiene EPS:* ${encodeURIComponent(qEps)}%0A• *Preferencia:* ${encodeURIComponent(qTipoPlan)}%0A%0A¿Podrían asesorarme con las opciones más convenientes?`;
+
+      const sendWaBtn = document.getElementById('btnCotizSaludWa');
+      if (sendWaBtn) {
+        sendWaBtn.onclick = () => window.open(`https://wa.me/573054034164?text=${waMsg}`, '_blank');
+      }
+    });
+  }
+}
+
+function switchCotizadorTab(tab) {
+  const tabAutos = document.getElementById('cotizadorTabAutos');
+  const tabSalud = document.getElementById('cotizadorTabSalud');
+  const panelAutos = document.getElementById('panelCotizadorAutos');
+  const panelSalud = document.getElementById('panelCotizadorSalud');
+
+  if (tab === 'autos') {
+    tabAutos?.classList.add('is-active');
+    tabSalud?.classList.remove('is-active');
+    panelAutos?.classList.remove('is-hidden');
+    panelSalud?.classList.add('is-hidden');
+  } else {
+    tabSalud?.classList.add('is-active');
+    tabAutos?.classList.remove('is-active');
+    panelSalud?.classList.remove('is-hidden');
+    panelAutos?.classList.add('is-hidden');
+  }
+}
+
+function showCotizadorConfirmation(tipo, data) {
+  const confCard = document.getElementById(`cotizConfirmCard_${tipo}`);
+  const formEl = document.getElementById(tipo === 'autos' ? 'formCotizadorAutos' : 'formCotizadorSalud');
+  if (confCard && formEl) {
+    formEl.style.display = 'none';
+    confCard.classList.remove('is-hidden');
+    const resumeText = confCard.querySelector('.confirm-resume-text');
+    if (resumeText) resumeText.textContent = data.resumen;
+  }
+}
+
+/**
+ * Sección 6. Timeline Animada (Antes, Durante, Después)
+ */
+function initTimelineScroll() {
+  const steps = document.querySelectorAll('.timeline-step-card');
+  if (!steps.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-active');
+      }
+    });
+  }, {
+    threshold: 0.25
+  });
+
+  steps.forEach(step => observer.observe(step));
+}
+
+/**
+ * Sección 8. Siniestros & Directorio de Aseguradoras 24/7
+ */
+function initSiniestrosDirectory() {
+  const grid = document.getElementById('siniestrosInsurersGrid');
+  if (!grid) return;
+
+  grid.innerHTML = insurersDirectory.map(ins => `
+    <div class="insurer-card reveal-fade-up">
+      <div class="insurer-card-header">
+        <span class="insurer-badge-icon" style="background:${ins.logoColor}; color:#fff;">
+          ${ins.name.substring(0, 1)}
+        </span>
+        <div>
+          <h4 class="insurer-name">${ins.name}</h4>
+          <span class="insurer-specialty">${ins.specialty}</span>
+        </div>
+      </div>
+      <p class="insurer-desc">${ins.description}</p>
+      <div class="insurer-actions">
+        <a href="${ins.cellDial}" class="btn btn-call-short">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>Marcar ${ins.shortCode}</span>
+        </a>
+        <a href="tel:${ins.nationalPhone.replace(/\s+/g, '')}" class="btn btn-call-national" title="Línea nacional gratuita">
+          <span>${ins.nationalPhone}</span>
+        </a>
+      </div>
+    </div>
+  `).join('');
+}
+
+/**
+ * Sección 9. Paquete Unificado Pazur (Ahorro Dúo / Familiar)
  */
 function initBundleBuilder() {
   const container = document.getElementById('bundlePillsList');
@@ -468,13 +841,12 @@ function renderBundlePills() {
     `;
   }).join('');
 
-  // Attach toggle listeners
   const pillElements = container.querySelectorAll('.bundle-item-pill');
   pillElements.forEach(pill => {
     pill.addEventListener('click', () => {
       const id = pill.dataset.bundleId;
       if (selectedBundle.includes(id)) {
-        if (selectedBundle.length > 1) { // Keep at least one
+        if (selectedBundle.length > 1) {
           selectedBundle = selectedBundle.filter(x => x !== id);
         }
       } else {
@@ -484,18 +856,17 @@ function renderBundlePills() {
     });
   });
 
-  // Update counters & perks
   if (counterPill) {
-    counterPill.textContent = `${selectedBundle.length} pólizas seleccionadas`;
+    counterPill.textContent = `${selectedBundle.length} seleccionadas`;
   }
 
   if (calcInfo) {
     if (selectedBundle.length >= 3) {
-      calcInfo.innerHTML = `✨ <strong>Beneficio Exclusivo:</strong> Asesor personal dedicado 24/7 + hasta 15% de ahorro consolidado y gestión única de renovaciones.`;
+      calcInfo.innerHTML = `✨ <strong>Beneficio Integral Pazur:</strong> Asesor dedicado 24/7 + hasta 15% de ahorro consolidado y gestión única de renovaciones sin vencimientos sorpresa.`;
     } else if (selectedBundle.length === 2) {
-      calcInfo.innerHTML = `✨ <strong>Paquete Dúo:</strong> 10% de beneficio en seguros combinados + un solo punto de contacto en Medellín.`;
+      calcInfo.innerHTML = `✨ <strong>Paquete Dúo:</strong> 10% de beneficio en seguros combinados + un solo punto de contacto en Medellín y Rionegro.`;
     } else {
-      calcInfo.innerHTML = `💡 Selecciona más pólizas para activar beneficios de unificación de coberturas.`;
+      calcInfo.innerHTML = `💡 Selecciona 2 o más pólizas para activar beneficios de unificación y tarifas de grupo.`;
     }
   }
 }
@@ -511,7 +882,7 @@ function sendBundleToWhatsApp() {
 }
 
 /**
- * 5. FAQ Accordion
+ * Sección 13. FAQ Accordion (7 Preguntas del brief oficial)
  */
 function initFaqAccordion() {
   const faqItems = document.querySelectorAll('.faq-item');
@@ -520,7 +891,6 @@ function initFaqAccordion() {
     if (!btn) return;
     btn.addEventListener('click', () => {
       const isOpen = item.classList.contains('is-open');
-      // Close other items
       faqItems.forEach(i => i.classList.remove('is-open'));
       if (!isOpen) {
         item.classList.add('is-open');
@@ -530,7 +900,89 @@ function initFaqAccordion() {
 }
 
 /**
- * 6. Quote Modal (Cotizador Rápido Pazur)
+ * Sección 14. Formulario de Cierre ("Tu tranquilidad empieza con una conversación")
+ */
+function initContactForm() {
+  const form = document.getElementById('mainContactForm');
+  const confMessage = document.getElementById('mainContactConfirmation');
+  if (!form) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nombre = document.getElementById('contactNombre').value;
+    const celular = document.getElementById('contactCelular').value;
+    const correo = document.getElementById('contactCorreo').value;
+    const queProtege = document.getElementById('contactProtege').value;
+    const mensaje = document.getElementById('contactMensaje').value;
+    const habeasData = document.getElementById('contactHabeas').checked;
+
+    if (!habeasData) {
+      alert('Por favor autoriza la Política de Tratamiento de Datos Personales para continuar.');
+      return;
+    }
+
+    if (confMessage) {
+      form.style.display = 'none';
+      confMessage.classList.remove('is-hidden');
+    }
+
+    // Prefilled WhatsApp message
+    const waText = `Hola Pazur Seguros! 🤝 Deseo solicitar mi asesoría personalizada:%0A%0A• *Nombre:* ${encodeURIComponent(nombre)}%0A• *Celular:* ${encodeURIComponent(celular)}%0A• *Correo:* ${encodeURIComponent(correo)}%0A• *Deseo proteger:* ${encodeURIComponent(queProtege)}%0A${mensaje ? `• *Mensaje:* ${encodeURIComponent(mensaje)}%0A` : ''}%0AQuedo atento a su acompañamiento.`;
+
+    // Auto open WhatsApp in new tab
+    window.open(`https://wa.me/573054034164?text=${waText}`, '_blank');
+  });
+}
+
+/**
+ * Directorio Modal Flotante (Botón flotante "Directorio 24/7")
+ */
+function initDirectoryModal() {
+  const modal = document.getElementById('directoryModal');
+  const openBtns = document.querySelectorAll('[data-open-directory]');
+  const closeBtn = document.getElementById('directoryModalClose');
+  const listContainer = document.getElementById('directoryModalList');
+
+  if (!modal) return;
+
+  if (listContainer) {
+    listContainer.innerHTML = insurersDirectory.map(ins => `
+      <div class="dir-modal-item">
+        <div class="dir-modal-left">
+          <span class="dir-modal-badge" style="background:${ins.logoColor}; color:#fff;">
+            ${ins.name.substring(0, 1)}
+          </span>
+          <div>
+            <div class="dir-modal-name">${ins.name}</div>
+            <div class="dir-modal-phone">${ins.nationalPhone}</div>
+          </div>
+        </div>
+        <a href="${ins.cellDial}" class="btn btn-call-sm">
+          <span>Llamar ${ins.shortCode}</span>
+        </a>
+      </div>
+    `).join('');
+  }
+
+  const openModal = () => {
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+  };
+
+  openBtns.forEach(b => b.addEventListener('click', openModal));
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+}
+
+/**
+ * Cotizador Modal General
  */
 function initQuoteModal() {
   const modal = document.getElementById('quoteModal');
@@ -540,12 +992,12 @@ function initQuoteModal() {
 
   if (!modal) return;
 
-  const openModal = (preselectedCategory = '') => {
+  const openModal = (preselected = '') => {
     modal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
-    if (preselectedCategory) {
+    if (preselected) {
       const select = document.getElementById('quotePolicyType');
-      if (select) select.value = preselectedCategory;
+      if (select) select.value = preselected;
     }
   };
 
@@ -557,8 +1009,7 @@ function initQuoteModal() {
   openButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      const cat = btn.dataset.category || '';
-      openModal(cat);
+      openModal(btn.dataset.policy || '');
     });
   });
 
@@ -585,8 +1036,29 @@ function initQuoteModal() {
   }
 }
 
+function openQuoteModalWithPolicy(policyName) {
+  const modal = document.getElementById('quoteModal');
+  if (!modal) return;
+  modal.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+
+  const select = document.getElementById('quotePolicyType');
+  if (select) {
+    // Look for matching option or select closest
+    let matched = false;
+    for (let opt of select.options) {
+      if (opt.text.toLowerCase().includes(policyName.toLowerCase()) || opt.value.toLowerCase().includes(policyName.toLowerCase())) {
+        opt.selected = true;
+        matched = true;
+        break;
+      }
+    }
+    if (!matched) select.value = "Salud y Medicina Prepagada";
+  }
+}
+
 /**
- * 7. Policy Details Modal (Deep dive into all flyer sub-coverages)
+ * Modal de Detalles de Póliza
  */
 function initPortfolioDetailsModal() {
   const modal = document.getElementById('detailsModal');
@@ -639,26 +1111,23 @@ function openDetailsModal(cardId, category) {
 }
 
 /**
- * 8. Mobile Navigation Drawer
+ * Scroll Animations (IntersectionObserver)
  */
-function initMobileNav() {
-  const toggleBtn = document.getElementById('mobileMenuToggle');
-  const overlay = document.getElementById('mobileNavOverlay');
-  const closeBtn = document.getElementById('mobileNavClose');
-  const links = document.querySelectorAll('.mobile-nav-link');
+function initScrollAnimations() {
+  const elements = document.querySelectorAll('.reveal-fade-up');
+  if (!elements.length) return;
 
-  if (!toggleBtn || !overlay) return;
-
-  const openDrawer = () => overlay.classList.add('is-open');
-  const closeDrawer = () => overlay.classList.remove('is-open');
-
-  toggleBtn.addEventListener('click', openDrawer);
-  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) closeDrawer();
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    rootMargin: '0px 0px -40px 0px',
+    threshold: 0.1
   });
 
-  links.forEach(link => {
-    link.addEventListener('click', closeDrawer);
-  });
+  elements.forEach(el => observer.observe(el));
 }
