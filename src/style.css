@@ -2558,3 +2558,25 @@ body:has(.siniestros-section) .navbar-pill.is-scrolled {
   .ticker-track { width: 100%; max-width: 1200px; margin: auto; padding: 0 20px; flex-wrap: wrap; justify-content: center; transform: none; }
   .ticker-track > .ally-logo-badge:nth-of-type(n+9) { display: none; }
 }
+
+/* Myth card: stack before the two columns become cramped on tablets. */
+.myth-grid > * { min-width: 0; }
+@media (max-width: 1000px) {
+  .myth-section { padding: 56px 0; }
+  .myth-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .myth-card { padding: 32px 28px; }
+  .myth-quote-title { font-size: clamp(1.65rem, 4vw, 2.2rem); line-height: 1.2; }
+  .myth-text { font-size: 1rem; margin-bottom: 20px; }
+  .myth-highlight-box { width: 100%; padding: 24px; }
+  .myth-grid .btn { max-width: 100%; white-space: normal; text-align: left; line-height: 1.45; }
+  .myth-grid .btn svg { flex-shrink: 0; }
+}
+@media (max-width: 600px) {
+  .myth-section { padding: 40px 0; }
+  .myth-card { padding: 28px 20px; }
+  .myth-grid { gap: 24px; }
+  .myth-quote-title { font-size: clamp(1.6rem, 6vw, 1.95rem); margin-bottom: 16px; }
+  .myth-grid .btn { width: 100%; justify-content: space-between; padding: 14px 18px; font-size: 0.88rem; }
+  .myth-highlight-box { padding: 22px 16px; }
+  .myth-highlight-price { font-size: clamp(1.25rem, 5vw, 1.6rem); }
+}
