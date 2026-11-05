@@ -60,6 +60,6 @@ for (const page of pages) {
   html = html.replace(/(<meta property="og:url" content=")[^"]*/, `$1https://pazurseguros.com/${page.slug ? page.slug + '/' : ''}`);
   const out = page.slug ? `${page.slug}/index.html` : 'index.html';
   fs.mkdirSync(path.dirname(out), {recursive:true});
-  fs.writeFileSync(out, html);
+  fs.writeFileSync(out, html.replace(/[ \t]+$/gm, ''));
 }
 console.log(`Generated ${pages.length} independent pages.`);
