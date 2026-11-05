@@ -2549,3 +2549,12 @@ body:has(.siniestros-section) .navbar-pill.is-scrolled {
 .ally-mark .ally-svg-logo { display:block; width:100%; height:100%; min-width:0; object-fit:contain; border-radius:0; filter:brightness(0) invert(1); }
 .ally-mark-name { font-family:Arial,sans-serif; font-size:10px; font-weight:800; line-height:1.05; text-align:center; white-space:normal; letter-spacing:0.2px; }
 
+
+/* The logo strip never exposes scrollbars, including reduced-motion mode. */
+.ticker-track-wrap { overflow: hidden; scrollbar-width: none; -ms-overflow-style: none; }
+.ticker-track-wrap::-webkit-scrollbar { display: none; width: 0; height: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track-wrap { overflow: hidden; mask-image: none; -webkit-mask-image: none; }
+  .ticker-track { width: 100%; max-width: 1200px; margin: auto; padding: 0 20px; flex-wrap: wrap; justify-content: center; transform: none; }
+  .ticker-track > .ally-logo-badge:nth-of-type(n+9) { display: none; }
+}
