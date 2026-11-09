@@ -717,6 +717,15 @@ button {
   gap: 8px;
 }
 
+.hero-ctas-row .btn-sage {
+  background-color: #91ad9a;
+  color: var(--text-dark);
+}
+
+.hero-ctas-row .btn-sage:hover {
+  background-color: #7f9c88;
+}
+
 .hero-ctas-row .btn-outline {
   color: #fff;
   background-color: rgba(25, 30, 36, 0.35);
