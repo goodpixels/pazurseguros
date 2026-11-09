@@ -1096,3 +1096,44 @@ function initAlliesTicker() {
   new ResizeObserver(updateSpeed).observe(track);
   document.fonts?.ready.then(updateSpeed);
 }
+
+function initProtectionCarousel() {
+  const root = document.querySelector('.protection-carousel');
+  if (!root) return;
+  const viewport = root.querySelector('.protection-viewport');
+  const slides = [...root.querySelectorAll('.protection-slide')];
+  const pauseButton = root.querySelector('[data-carousel-pause]');
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let paused = motion.matches;
+  let index = 0;
+  function update() {
+    const center = viewport.scrollLeft + viewport.clientWidth / 2;
+    let nearest = Infinity;
+    slides.forEach((slide, i) => {
+      const distance = slide.offsetLeft - viewport.offsetLeft + slide.offsetWidth / 2 - center;
+      if (Math.abs(distance) < nearest) { nearest = Math.abs(distance); index = i; }
+      slide.style.setProperty('--card-angle', Math.max(-16, Math.min(16, -distance / 25)) + 'deg');
+      slide.style.setProperty('--card-scale', Math.max(.9, 1 - Math.abs(distance) / 5000));
+    });
+  }
+  function move(direction) {
+    index = (index + direction + slides.length) % slides.length;
+    viewport.scrollTo({ left: slides[index].offsetLeft - viewport.offsetLeft - (viewport.clientWidth - slides[index].offsetWidth) / 2, behavior: motion.matches ? 'instant' : 'smooth' });
+  }
+  function updatePause() {
+    pauseButton.textContent = paused ? '▶' : 'Ⅱ';
+    pauseButton.setAttribute('aria-label', paused ? 'Activar movimiento automático' : 'Pausar movimiento automático');
+  }
+  root.querySelector('[data-carousel-prev]').addEventListener('click', () => move(-1));
+  root.querySelector('[data-carousel-next]').addEventListener('click', () => move(1));
+  pauseButton.addEventListener('click', () => { paused = !paused; updatePause(); });
+  motion.addEventListener('change', () => { paused = motion.matches; updatePause(); });
+  viewport.addEventListener('scroll', update, { passive:true });
+  window.addEventListener('resize', update);
+  setInterval(() => {
+    if (!paused && !document.hidden && !root.matches(':hover') && !root.contains(document.activeElement)) move(1);
+  }, 5000);
+  updatePause();
+  update();
+}
+document.addEventListener('DOMContentLoaded', initProtectionCarousel);
