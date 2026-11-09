@@ -5,7 +5,7 @@ import path from 'node:path';
 const template = fs.readFileSync('src/page-template.html', 'utf8');
 const sections = new Map([...template.matchAll(/<section\b[^>]*\bid="([^"]+)"[^>]*>[\s\S]*?<\/section>/g)].map(m => [m[1], m[0]]));
 const pages = [
-  {slug:'', title:'Elegir bien da paz', ids:['hero','aliados','rompiendo-el-mito','por-que-pazur','testimonios']},
+  {slug:'', title:'Elegir bien da paz', ids:['hero','proteccion','aliados','rompiendo-el-mito','por-que-pazur','testimonios']},
   {slug:'polizas', title:'Catálogo de pólizas', ids:['portafolio','paquete']},
   {slug:'cotizador', title:'Cotiza tu seguro', ids:['cotizador']},
   {slug:'como-trabajamos', title:'Cómo trabajamos', ids:['como-trabajamos']},
