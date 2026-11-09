@@ -1109,6 +1109,8 @@ function initProtectionCarousel() {
   let timer;
   let pointerStart = null;
   let swiped = false;
+  let hoverDirection = 0;
+  let nextMoveAt = 0;
   const count = slides.length;
   function render() {
     const width = slides[0].offsetWidth;
@@ -1134,15 +1136,36 @@ function initProtectionCarousel() {
       }
     });
   }
-  function schedule() {
+  function schedule(delay = hoverDirection ? 2400 : 4200) {
     clearTimeout(timer);
     timer = setTimeout(() => {
-      // Pointer hover does not stop playback. Keyboard interaction does.
-      if (!document.hidden && !root.querySelector(':focus-visible') && pointerStart === null) move(1);
+      // A side hover takes priority over autoplay; keyboard focus pauses both.
+      if (!document.hidden && !root.querySelector(':focus-visible') && pointerStart === null) move(hoverDirection || 1);
       else schedule();
-    }, 4200);
+    }, Math.max(delay, nextMoveAt - performance.now()));
   }
-  function move(direction) { index = (index + direction + count) % count; render(); schedule(); }
+  function move(direction) {
+    index = (index + direction + count) % count;
+    nextMoveAt = performance.now() + 1900;
+    render(); schedule();
+  }
+  function setHoverDirection(direction) {
+    if (direction === hoverDirection) return;
+    hoverDirection = direction;
+    // A short dwell avoids accidental movement while crossing the carousel.
+    schedule(direction ? 650 : 4200);
+  }
+  viewport.addEventListener('pointermove', event => {
+    if (event.pointerType !== 'mouse' || pointerStart !== null) return;
+    const card = event.target.closest('.protection-slide');
+    const bounds = viewport.getBoundingClientRect();
+    const center = bounds.left + bounds.width / 2;
+    const halfCard = slides[0].offsetWidth / 2;
+    // Use the fixed center slot, not the moving card's index, to avoid reversals.
+    const direction = !card ? 0 : event.clientX < center - halfCard ? -1 : event.clientX > center + halfCard ? 1 : 0;
+    setHoverDirection(direction);
+  });
+  viewport.addEventListener('pointerleave', () => setHoverDirection(0));
   root.querySelector('[data-carousel-prev]').addEventListener('click', () => move(-1));
   root.querySelector('[data-carousel-next]').addEventListener('click', () => move(1));
   viewport.addEventListener('keydown', event => {
@@ -1150,7 +1173,7 @@ function initProtectionCarousel() {
       event.preventDefault(); move(event.key === 'ArrowRight' ? 1 : -1);
     }
   });
-  viewport.addEventListener('pointerdown', event => { pointerStart = event.clientX; swiped = false; });
+  viewport.addEventListener('pointerdown', event => { setHoverDirection(0); pointerStart = event.clientX; swiped = false; });
   window.addEventListener('pointerup', event => {
     if (pointerStart === null) return;
     const delta = event.clientX - pointerStart;
@@ -1166,7 +1189,7 @@ function initProtectionCarousel() {
       event.preventDefault(); index = slides.indexOf(slide); render(); schedule();
     }
   });
-  document.addEventListener('visibilitychange', schedule);
+  document.addEventListener('visibilitychange', () => { hoverDirection = 0; schedule(); });
   new ResizeObserver(render).observe(viewport);
   render(); schedule();
 }
