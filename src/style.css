@@ -593,9 +593,9 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: var(--color-sage-soft);
-  color: var(--color-sage);
-  border: 1px solid var(--color-sage-border);
+  background-color: rgba(121, 166, 207, 0.16);
+  color: #c9def2;
+  border: 1px solid rgba(157, 192, 223, 0.4);
   padding: 6px 14px;
   border-radius: var(--radius-pill);
   font-size: 0.82rem;
@@ -608,7 +608,7 @@ button {
 .hero-antetitulo-badge .dot {
   width: 7px;
   height: 7px;
-  background-color: var(--color-sage);
+  background-color: #c9def2;
   border-radius: 50%;
 }
 
@@ -761,7 +761,13 @@ button {
   animation: tickerSlide var(--ticker-duration, 120s) linear infinite;
 }
 
-.ticker-track:hover {
+@media (hover: hover) {
+  .ticker-track-wrap:hover .ticker-track {
+    animation-play-state: paused;
+  }
+}
+
+.ticker-track-wrap:focus-within .ticker-track {
   animation-play-state: paused;
 }
 
@@ -2510,10 +2516,6 @@ body:has(.siniestros-section) .navbar-pill.is-scrolled {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-.ticker-track-wrap:hover .ticker-track, .ticker-track-wrap:focus-within .ticker-track { animation-play-state: paused; }
-@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none !important; } .ticker-track-wrap { overflow-x: auto; } }
-
-
 /* Original compact badges, with small one-color artwork on brand backgrounds. */
 .ally-mark { display:inline-flex; flex:0 0 96px; width:96px; height:32px; align-items:center; justify-content:center; padding:6px 10px; border-radius:4px; background:var(--ally-brand); color:#fff; }
 .ally-mark .ally-svg-logo { display:block; width:100%; height:100%; min-width:0; object-fit:contain; border-radius:0; filter:brightness(0) invert(1); }
@@ -2521,11 +2523,11 @@ body:has(.siniestros-section) .navbar-pill.is-scrolled {
 
 
 /* The logo strip never exposes scrollbars, including reduced-motion mode. */
-.ticker-track-wrap { overflow: hidden; scrollbar-width: none; -ms-overflow-style: none; }
+.ticker-track-wrap { scrollbar-width: none; -ms-overflow-style: none; }
 .ticker-track-wrap::-webkit-scrollbar { display: none; width: 0; height: 0; }
 @media (prefers-reduced-motion: reduce) {
-  .ticker-track-wrap { overflow: hidden; mask-image: none; -webkit-mask-image: none; }
-  .ticker-track { width: 100%; max-width: 1200px; margin: auto; padding: 0 20px; flex-wrap: wrap; justify-content: center; transform: none; }
+  .ticker-track-wrap { overflow-x: auto; mask-image: none; -webkit-mask-image: none; }
+  .ticker-track { animation: none; padding: 0 20px; }
   .ticker-track > .ally-logo-badge:nth-of-type(n+9) { display: none; }
 }
 
