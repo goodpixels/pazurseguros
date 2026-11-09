@@ -1088,9 +1088,12 @@ function initAlliesTicker() {
   const track = document.querySelector('.ticker-track');
   if (!track) return;
   const updateSpeed = () => {
-    const gap = parseFloat(getComputedStyle(track).gap) || 0;
-    const distance = (track.scrollWidth + gap) / 2;
-    track.style.setProperty('--ticker-duration', `${distance / 20}s`);
+    const items = [...track.children];
+    const firstDuplicate = items[items.length / 2];
+    if (!firstDuplicate) return;
+    const distance = firstDuplicate.offsetLeft - items[0].offsetLeft;
+    track.style.setProperty('--ticker-distance', `${distance}px`);
+    track.style.setProperty('--ticker-duration', `${distance / 28}s`);
   };
   updateSpeed();
   new ResizeObserver(updateSpeed).observe(track);
@@ -1137,7 +1140,7 @@ function initProtectionCarousel() {
       // Pointer hover does not stop playback. Keyboard interaction does.
       if (!document.hidden && !root.querySelector(':focus-visible') && pointerStart === null) move(1);
       else schedule();
-    }, 3200);
+    }, 4200);
   }
   function move(direction) { index = (index + direction + count) % count; render(); schedule(); }
   root.querySelector('[data-carousel-prev]').addEventListener('click', () => move(-1));
