@@ -1102,38 +1102,70 @@ function initProtectionCarousel() {
   if (!root) return;
   const viewport = root.querySelector('.protection-viewport');
   const slides = [...root.querySelectorAll('.protection-slide')];
-  const pauseButton = root.querySelector('[data-carousel-pause]');
-  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let paused = motion.matches;
   let index = 0;
-  function update() {
-    const center = viewport.scrollLeft + viewport.clientWidth / 2;
-    let nearest = Infinity;
+  let timer;
+  let pointerStart = null;
+  let swiped = false;
+  const count = slides.length;
+  function render() {
+    const width = slides[0].offsetWidth;
     slides.forEach((slide, i) => {
-      const distance = slide.offsetLeft - viewport.offsetLeft + slide.offsetWidth / 2 - center;
-      if (Math.abs(distance) < nearest) { nearest = Math.abs(distance); index = i; }
-      slide.style.setProperty('--card-angle', Math.max(-16, Math.min(16, -distance / 25)) + 'deg');
-      slide.style.setProperty('--card-scale', Math.max(.9, 1 - Math.abs(distance) / 5000));
+      const distance = ((i - index + count + Math.floor(count / 2)) % count) - Math.floor(count / 2);
+      const active = distance === 0;
+      const visible = Math.abs(distance) <= 2;
+      // Wrap the invisible outer card without flying it across the viewport.
+      if (Math.abs(distance - Number(slide.dataset.position ?? distance)) > 1) {
+        slide.style.transition = 'none';
+      }
+      slide.style.transform = `translateX(calc(-50% + ${distance * (width + 24)}px)) perspective(1400px) rotateY(${distance === 0 ? 0 : -Math.sign(distance) * 28}deg) scale(${active ? 1 : .94})`;
+      slide.style.opacity = visible ? '1' : '0';
+      slide.style.zIndex = String(count - Math.abs(distance));
+      slide.style.pointerEvents = visible ? 'auto' : 'none';
+      slide.classList.toggle('is-active', active);
+      slide.tabIndex = active ? 0 : -1;
+      slide.setAttribute('aria-hidden', String(!visible));
+      slide.dataset.position = distance;
+      if (slide.style.transition === 'none') {
+        slide.getBoundingClientRect();
+        slide.style.transition = '';
+      }
     });
   }
-  function move(direction) {
-    index = (index + direction + slides.length) % slides.length;
-    viewport.scrollTo({ left: slides[index].offsetLeft - viewport.offsetLeft - (viewport.clientWidth - slides[index].offsetWidth) / 2, behavior: motion.matches ? 'instant' : 'smooth' });
+  function schedule() {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      // Pointer hover does not stop playback. Keyboard interaction does.
+      if (!document.hidden && !root.querySelector(':focus-visible') && pointerStart === null) move(1);
+      else schedule();
+    }, 3200);
   }
-  function updatePause() {
-    pauseButton.textContent = paused ? '▶' : 'Ⅱ';
-    pauseButton.setAttribute('aria-label', paused ? 'Activar movimiento automático' : 'Pausar movimiento automático');
-  }
+  function move(direction) { index = (index + direction + count) % count; render(); schedule(); }
   root.querySelector('[data-carousel-prev]').addEventListener('click', () => move(-1));
   root.querySelector('[data-carousel-next]').addEventListener('click', () => move(1));
-  pauseButton.addEventListener('click', () => { paused = !paused; updatePause(); });
-  motion.addEventListener('change', () => { paused = motion.matches; updatePause(); });
-  viewport.addEventListener('scroll', update, { passive:true });
-  window.addEventListener('resize', update);
-  setInterval(() => {
-    if (!paused && !document.hidden && !root.matches(':hover') && !root.contains(document.activeElement)) move(1);
-  }, 5000);
-  updatePause();
-  update();
+  viewport.addEventListener('keydown', event => {
+    if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+      event.preventDefault(); move(event.key === 'ArrowRight' ? 1 : -1);
+    }
+  });
+  viewport.addEventListener('pointerdown', event => { pointerStart = event.clientX; swiped = false; });
+  window.addEventListener('pointerup', event => {
+    if (pointerStart === null) return;
+    const delta = event.clientX - pointerStart;
+    pointerStart = null;
+    if (Math.abs(delta) > 40) { swiped = true; move(delta < 0 ? 1 : -1); }
+  });
+  viewport.addEventListener('pointercancel', () => { pointerStart = null; });
+  viewport.addEventListener('dragstart', event => event.preventDefault());
+  viewport.addEventListener('click', event => {
+    if (swiped) { event.preventDefault(); swiped = false; return; }
+    const slide = event.target.closest('.protection-slide');
+    if (slide && !slide.classList.contains('is-active')) {
+      event.preventDefault(); index = slides.indexOf(slide); render(); schedule();
+    }
+  });
+  document.addEventListener('visibilitychange', schedule);
+  new ResizeObserver(render).observe(viewport);
+  render(); schedule();
 }
-document.addEventListener('DOMContentLoaded', initProtectionCarousel);
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initProtectionCarousel);
+else initProtectionCarousel();
