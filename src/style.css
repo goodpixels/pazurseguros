@@ -32,8 +32,8 @@
   --color-ochre-soft: #FEF4E8;
   
   /* Brand Corporate Deep Blue (Nuevo toque solicitado en el brief) */
-  --color-brand-blue: #3A4149;
-  --color-catalog-blue: #3A4149;
+  --color-brand-blue: #3F6D8A;
+  --color-catalog-blue: #3F6D8A;
   --color-brand-blue-hover: #3D4642;
   --color-brand-blue-soft: rgba(58, 65, 73, 0.08);
   --color-brand-blue-border: rgba(58, 65, 73, 0.25);
@@ -2590,3 +2590,51 @@ body:has(.siniestros-section) .navbar-pill.is-scrolled {
 .protection-slide:focus-visible,.protection-controls button:focus-visible,.protection-viewport:focus-visible { outline:2px solid #345e82; outline-offset:-3px; }
 @media(max-width:600px) { .protection-carousel { padding:56px 0 32px; } .protection-carousel .heading-section { font-size:32px; } .protection-viewport { --card-width:78vw; --card-height:440px; margin-top:16px; } .protection-slide-copy { padding:24px; } .protection-slide h3 { font-size:27px; } }
 
+
+/* Client adjustments — November 2026 */
+:root { --color-brand-blue:#3F6D8A; --color-brand-blue-hover:#31566d; --color-brand-blue-soft:#eaf0f4; --color-brand-blue-border:#c2d2dd; }
+.kicker-blue,.footer-link:hover { color:#3F6D8A; }
+.hero-content h1 span { color:#dce9f1; }
+.btn-butter { background:#3F6D8A; color:#fff; box-shadow:0 6px 20px #3f6d8a26; }
+.btn-butter:hover { background:#31566d; color:#fff; }
+.pazur-smile-arc { background:transparent !important; height:16px; border:0; border-bottom:3px solid #3F6D8A; border-radius:0 0 50% 50%; transform-origin:center; animation:smileAppear .8s ease both; }
+.siniestros-section .pazur-smile-arc { border-color:#dce9f1; }
+@keyframes smileAppear { from { transform:scaleX(.2); opacity:0; } to { transform:scaleX(1); opacity:1; } }
+.nav-link::before { border-color:#3F6D8A; }
+.insurer-search { max-width:640px; margin:32px auto; text-align:left; color:#fff; }
+.insurer-search label { display:block; font-weight:600; margin-bottom:10px; }
+.insurer-search input { width:100%; background:#fff; color:#1a1f24; padding:17px 22px; border:2px solid transparent; border-radius:14px; }
+.insurer-search input:focus-visible { outline:3px solid #dce9f1; outline-offset:4px; }
+.insurer-search p { margin-top:10px; font-size:14px; }
+.insurer-card[hidden] { display:none; }
+.insurer-card { gap:14px; }
+.insurer-logo-panel { height:100px; border-radius:12px; display:flex; align-items:center; justify-content:center; background:var(--insurer-brand); padding:16px 24px; }
+.insurer-logo-panel img { width:100%; height:100%; object-fit:contain; }
+.insurer-card[data-insurer-name="SBS Seguros"] .insurer-logo-panel { background:#fff; }
+.insurer-card[data-insurer-name="Seguros del Estado"] .insurer-logo-panel,
+.insurer-card[data-insurer-name="Previsora"] .insurer-logo-panel,
+.insurer-card[data-insurer-name="AXA Colpatria"] .insurer-logo-panel { background:#fff; }
+.insurer-name { margin:0; color:#fff; font-size:21px; }
+.insurer-specialty { min-height:44px; margin:0; }
+.insurer-actions { margin-top:auto; }
+.insurer-actions .btn { white-space:normal; text-align:center; }
+.ally-logo-badge { flex:0 0 216px; height:92px; padding:16px 22px; border:0; border-radius:12px; background:var(--insurer-brand); filter:grayscale(1); transition:filter .35s ease,transform .35s ease; }
+.ally-logo-badge img { width:172px; height:60px; object-fit:contain; }
+.ally-logo-badge:has(img[src$="sbs.png"]) { background:#fff; }
+.ally-logo-badge:hover { filter:grayscale(0); transform:scale(1.06); }
+.ticker-track { padding:8px 0; }
+.ticker-track-wrap:hover .ticker-track { animation-play-state:paused; }
+.floating-contact { position:fixed; right:20px; bottom:20px; z-index:1050; display:flex; flex-direction:column; align-items:flex-end; gap:10px; }
+.floating-contact a { display:flex; align-items:center; gap:10px; background:#3F6D8A; color:white; border:1px solid #ffffff40; border-radius:999px; padding:13px 18px; box-shadow:0 5px 20px #122f4133; font-size:13px; font-weight:700; transition:background .2s,transform .2s; }
+.floating-contact a:hover { background:#31566d; transform:translateY(-3px); }
+.floating-contact svg { width:24px; height:24px; }
+.floating-contact a:focus-visible { outline:3px solid #91ad9a; outline-offset:3px; }
+footer { padding-bottom:150px !important; }
+.reveal-fade-up.is-revealed svg { animation:smileAppear .7s ease both; }
+@media(max-width:600px) { .floating-contact { right:12px; bottom:12px; gap:8px; } .floating-contact a { padding:11px 14px; font-size:11px; } .floating-contact svg { width:20px; height:20px; } .ally-logo-badge { flex-basis:180px; height:80px; } .ally-logo-badge img { width:136px; height:48px; } }
+.pillar-4-icon { width:68px; height:68px; background:#eaf0f4; color:#3F6D8A; }
+.pillar-4-icon svg { width:34px; height:34px; }
+.btn-outline:hover { border-color:#3F6D8A; color:#3F6D8A; }
+.footer-link { position:relative; }
+.footer-link::after { content:""; position:absolute; left:0; bottom:-7px; width:28px; height:8px; border-bottom:2px solid #3F6D8A; border-radius:0 0 50% 50%; transform:scaleX(0); transform-origin:left; transition:transform .25s ease; }
+.footer-link:hover::after { transform:scaleX(1); }

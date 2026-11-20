@@ -342,80 +342,126 @@ export const insurersDirectory = [
     name: "SURA",
     shortCode: "#888",
     nationalPhone: "01 8000 51 8888",
-    cellDial: "tel:#888",
+    cellDial: "tel:%23888",
     logoColor: "#0033A0",
-    specialty: "Líder en Salud, Autos y Vida",
-    description: "Asistencia de grúa, choque, urgencias médicas y hogar 24/7."
+    specialty: "Salud, Autos y Vida"
   },
   {
     id: "mapfre",
     name: "MAPFRE",
-    shortCode: "#324",
+    shortCode: "#624",
     nationalPhone: "01 8000 919 738",
-    cellDial: "tel:#324",
+    cellDial: "tel:%23624",
     logoColor: "#D81E05",
-    specialty: "Autos, Empresas y Hogar",
-    description: "Atención inmediata en carretera y siniestros a nivel nacional."
+    specialty: "Autos, Empresas y Hogar"
   },
   {
     id: "bolivar",
     name: "Seguros Bolívar",
     shortCode: "#322",
     nationalPhone: "01 8000 123 322",
-    cellDial: "tel:#322",
+    cellDial: "tel:%23322",
     logoColor: "#1B7E36",
-    specialty: "Salud, Vida, Autos y Cumplimiento",
-    description: "Asistencia verde 24 horas y orientación en accidentes."
+    specialty: "Salud, Vida, Autos y Cumplimiento"
   },
   {
     id: "allianz",
     name: "Allianz Colombia",
     shortCode: "#265",
-    nationalPhone: "01 8000 513 888",
-    cellDial: "tel:#265",
+    nationalPhone: "01 8000 513 500",
+    cellDial: "tel:%23265",
     logoColor: "#003780",
-    specialty: "Salud Premium, Autos y Empresas",
-    description: "Red médica nacional y asistencia vehicular de alta gama."
+    specialty: "Salud, Autos y Empresas"
   },
   {
-    id: "liberty",
-    name: "Liberty Seguros",
+    id: "hdi",
+    name: "HDI Seguros",
     shortCode: "#224",
     nationalPhone: "01 8000 113 390",
-    cellDial: "tel:#224",
-    logoColor: "#1E2B4D",
-    specialty: "Autos, Cumplimiento y Todo Riesgo",
-    description: "Atención prioritaria en carretera y siniestros empresariales."
+    cellDial: "tel:%23224",
+    logoColor: "#007A33",
+    specialty: "Autos, Cumplimiento y Todo Riesgo"
   },
   {
     id: "sbs",
     name: "SBS Seguros",
-    shortCode: "#727",
-    nationalPhone: "01 8000 522 727",
-    cellDial: "tel:#727",
+    shortCode: "#360",
+    nationalPhone: "01 8000 911 360",
+    cellDial: "tel:%23360",
     logoColor: "#5A2B81",
-    specialty: "Patrimonio, Flotas y Cumplimiento",
-    description: "Línea rápida para reporte de daños, pólizas y asistencias."
+    specialty: "Patrimonio, Flotas y Cumplimiento"
   },
   {
     id: "panamerican",
     name: "Pan American Life",
-    shortCode: "01 8000 913 232",
-    nationalPhone: "01 8000 913 232",
-    cellDial: "tel:018000913232",
+    shortCode: "601 756 2323",
+    nationalPhone: "601 756 2323",
+    cellDial: "tel:6017562323",
     logoColor: "#0D5C75",
-    specialty: "Vida Individual y Colectiva",
-    description: "Especialistas en protección de vida y salud internacional."
+    specialty: "Vida Individual y Colectiva"
   },
   {
     id: "qualitas",
     name: "Qualitas Seguros",
-    shortCode: "01 8000 180 044",
-    nationalPhone: "01 8000 180 044",
-    cellDial: "tel:018000180044",
+    shortCode: "#963, opción 1",
+    nationalPhone: "601 657 9650",
+    cellDial: "tel:%23963",
     logoColor: "#6C205E",
-    specialty: "Autos y Movilidad Especializada",
-    description: "Respaldo y grúa para vehículos particulares y de trabajo."
+    specialty: "Autos y Movilidad Especializada"
+  },
+  {
+    id: "solidaria",
+    name: "Solidaria",
+    shortCode: "#789",
+    nationalPhone: "01 8000 512 021",
+    cellDial: "tel:%23789",
+    logoColor: "#005596",
+    specialty: "Autos, Hogar, Vida y Cumplimiento"
+  },
+  {
+    id: "estado",
+    name: "Seguros del Estado",
+    shortCode: "#388",
+    nationalPhone: "601 742 1075",
+    cellDial: "tel:%23388",
+    logoColor: "#004B87",
+    specialty: "Cumplimiento, Autos y Generales"
+  },
+  {
+    id: "mundial",
+    name: "Mundial",
+    shortCode: "#935",
+    nationalPhone: "01 8000 111 935",
+    cellDial: "tel:%23935",
+    logoColor: "#E30613",
+    specialty: "SOAT, Cumplimiento y Movilidad"
+  },
+  {
+    id: "previsora",
+    name: "Previsora",
+    shortCode: "#345",
+    nationalPhone: "01 8000 910 554",
+    cellDial: "tel:%23345",
+    logoColor: "#0069B4",
+    specialty: "Hogar, Autos, Vida y Empresas"
+  },
+  {
+    id: "axa",
+    name: "AXA Colpatria",
+    shortCode: "#247",
+    nationalPhone: "01 8000 512 620",
+    cellDial: "tel:%23247",
+    logoColor: "#00008F",
+    specialty: "Salud, Autos, Vida y Riesgos"
+  },
+  {
+    id: "equidad",
+    name: "La Equidad",
+    shortCode: "#324",
+    nationalPhone: "01 8000 919 538",
+    cellDial: "tel:%23324",
+    logoColor: "#00843D",
+    specialty: "Autos, Vida, Hogar y Empresarial"
   }
 ];
 
@@ -765,31 +811,27 @@ function initSiniestrosDirectory() {
   const grid = document.getElementById('siniestrosInsurersGrid');
   if (!grid) return;
 
+  const logoFile = id => ({axa:'axa-colpatria.png', estado:'estado.png', previsora:'previsora.png', sbs:'sbs.png'}[id] || `${id}.svg`);
   grid.innerHTML = insurersDirectory.map(ins => `
-    <div class="insurer-card reveal-fade-up">
-      <div class="insurer-card-header">
-        <span class="insurer-badge-icon" style="background:${ins.logoColor}; color:#fff;">
-          ${ins.name.substring(0, 1)}
-        </span>
-        <div>
-          <h4 class="insurer-name">${ins.name}</h4>
-          <span class="insurer-specialty">${ins.specialty}</span>
-        </div>
-      </div>
-      <p class="insurer-desc">${ins.description}</p>
+    <article class="insurer-card" data-insurer-name="${ins.name}">
+      <div class="insurer-logo-panel" style="--insurer-brand:${ins.logoColor}"><img src="/logos/insurers/${logoFile(ins.id)}" alt="${ins.name}" width="180" height="64" loading="lazy"></div>
+      <h3 class="insurer-name">${ins.name}</h3>
+      <p class="insurer-specialty">${ins.specialty}</p>
       <div class="insurer-actions">
-        <a href="${ins.cellDial}" class="btn btn-call-short">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-          </svg>
-          <span>Marcar ${ins.shortCode}</span>
-        </a>
-        <a href="tel:${ins.nationalPhone.replace(/\s+/g, '')}" class="btn btn-call-national" title="Línea nacional gratuita">
-          <span>${ins.nationalPhone}</span>
-        </a>
+        <a href="${ins.cellDial}" class="btn btn-call-short" aria-label="Llamar a ${ins.name}: ${ins.shortCode}">${ins.shortCode}</a>
+        <a href="tel:${ins.nationalPhone.replace(/\s+/g, '')}" class="btn btn-call-national" aria-label="Línea nacional o fija de ${ins.name}: ${ins.nationalPhone}">${ins.nationalPhone}</a>
       </div>
-    </div>
-  `).join('');
+    </article>`).join('');
+  const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  document.getElementById('insurerSearch')?.addEventListener('input', event => {
+    const query = normalize(event.target.value.trim());
+    let visible = 0;
+    grid.querySelectorAll('[data-insurer-name]').forEach(card => {
+      card.hidden = !normalize(card.dataset.insurerName).includes(query);
+      if (!card.hidden) visible++;
+    });
+    document.getElementById('insurerSearchStatus').textContent = visible ? `${visible} aseguradoras encontradas` : 'No encontramos esa aseguradora. Prueba con otro nombre.';
+  });
 }
 
 /**
@@ -1195,3 +1237,21 @@ function initProtectionCarousel() {
 }
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initProtectionCarousel);
 else initProtectionCarousel();
+
+// Restrained pointer tilt for static cards; carousel motion is managed separately.
+function initCardMotion() {
+  if (!matchMedia('(hover: hover) and (pointer: fine)').matches || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.insurer-card, .portfolio-card, .contact-option').forEach(card => {
+    let frame;
+    card.addEventListener('pointermove', event => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const r = card.getBoundingClientRect();
+        card.style.transform = `perspective(1000px) rotateX(${(0.5-(event.clientY-r.top)/r.height)*4}deg) rotateY(${((event.clientX-r.left)/r.width-0.5)*4}deg) translateY(-3px)`;
+      });
+    });
+    card.addEventListener('pointerleave', () => { cancelAnimationFrame(frame); card.style.transform = ''; });
+  });
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initCardMotion);
+else initCardMotion();
