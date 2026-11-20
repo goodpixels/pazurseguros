@@ -2638,3 +2638,9 @@ footer { padding-bottom:150px !important; }
 .footer-link { position:relative; }
 .footer-link::after { content:""; position:absolute; left:0; bottom:-7px; width:28px; height:8px; border-bottom:2px solid #3F6D8A; border-radius:0 0 50% 50%; transform:scaleX(0); transform-origin:left; transition:transform .25s ease; }
 .footer-link:hover::after { transform:scaleX(1); }
+
+/* Brand-blue primary actions requested for the hero and header. */
+.hero-ctas-row .btn-sage,
+.nav-contact-btn { background:#3F6D8A; color:#fff; }
+.hero-ctas-row .btn-sage:hover,
+.nav-contact-btn:hover { background:#31566d; color:#fff; }
