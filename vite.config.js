@@ -1,29 +1,13 @@
 import { defineConfig } from 'vite';
-import { resolve } from 'path';
-import fs from 'fs';
+import { resolve } from 'node:path';
 
-// Helper to find the entry HTML file regardless of casing on Linux/Netlify
-function getHtmlEntry() {
-  const currentDir = process.cwd();
-  if (fs.existsSync(resolve(currentDir, 'index.html'))) {
-    return resolve(currentDir, 'index.html');
-  }
-  if (fs.existsSync(resolve(currentDir, 'Index.html'))) {
-    return resolve(currentDir, 'Index.html');
-  }
-  // Search for any .html in root
-  const files = fs.readdirSync(currentDir);
-  const htmlFile = files.find(f => f.toLowerCase() === 'index.html');
-  if (htmlFile) {
-    return resolve(currentDir, htmlFile);
-  }
-  return resolve(currentDir, 'index.html');
-}
-
+const pages = ['', 'polizas', 'cotizador', 'como-trabajamos', 'siniestros', 'nosotros', 'blog', 'preguntas-frecuentes', 'contactar'];
 export default defineConfig({
+  appType: 'mpa',
+  server: { allowedHosts: ['terminal.local'] },
   build: {
     rollupOptions: {
-      input: getHtmlEntry()
+      input: Object.fromEntries(pages.map(page => [page || 'inicio', resolve(page, 'index.html')]))
     }
   }
 });

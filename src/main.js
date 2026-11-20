@@ -158,7 +158,7 @@ export const insuranceData = {
       id: "todo-riesgo-empresa",
       title: "Todo riesgo empresarial",
       tag: "Para tu empresa",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1795210904/Todo_Riesgo_Emprsarial_vqtcnc.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1791481834/Banner2_cyfnca.jpg",
       highlight: "Blindaje de tu operación",
       badge: "Instalaciones & Mercancía",
       desc: "Protege tus instalaciones, equipos y mercancía, y la continuidad de tu operación.",
@@ -174,7 +174,7 @@ export const insuranceData = {
       id: "responsabilidad-civil-empresa",
       title: "Responsabilidad civil",
       tag: "Para tu empresa",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1795210906/Responsabilidad_Civil_ousfxu.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849141/portrait-handsome-man-white-tee-sunglasses-holds-backpack-passport-tickets-poses-near-airport-good-mood_kk6afw.jpg",
       highlight: "Respaldo legal y económico",
       badge: "Daños a terceros",
       desc: "Respaldo legal y económico ante daños a terceros.",
@@ -190,7 +190,7 @@ export const insuranceData = {
       id: "cumplimiento-empresa",
       title: "Cumplimiento",
       tag: "Para tu empresa",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1795210907/Cumplimient_ljnamo.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793850993/romain-dancre-doplSDELX7E-unsplash_iia3jj.jpg",
       highlight: "Garantías gestionadas a tiempo",
       badge: "Licitaciones y contratos",
       desc: "Garantías para licitaciones y contratos, gestionadas a tiempo.",
@@ -206,7 +206,7 @@ export const insuranceData = {
       id: "fraudes-empresa",
       title: "Fraudes",
       tag: "Para tu empresa",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1795210905/Fraudes_r4ryjq.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849136/christin-hume-Hcfwew744z4-unsplash_a7obzm.jpg",
       highlight: "Protección digital y financiera",
       badge: "Fraude y ciberriesgo",
       desc: "Protección frente a pérdidas por fraude, incluido el entorno digital.",
@@ -222,7 +222,7 @@ export const insuranceData = {
       id: "flota-transporte",
       title: "Flota de transporte",
       tag: "Para tu empresa",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1795210902/Flota_de_Transporte_jdg1od.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849139/junior-reis-98AVD0fctzA-unsplash_odwhu8.jpg",
       highlight: "Los vehículos que mueven tu negocio",
       badge: "Tarifas corporativas",
       desc: "Cobertura integral para los vehículos que mueven tu negocio.",
@@ -240,7 +240,7 @@ export const insuranceData = {
       id: "salud-colectiva",
       title: "Salud colectiva",
       tag: "Para tu equipo",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1795210901/Salud_Colectiva_pqn7io.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849137/happy-stylish-caucasian-man-with-backpack-travel-rice-plantation-making-self-portrai-memories_izcg8e.jpg",
       highlight: "Bienestar con condiciones de grupo",
       badge: "Beneficio para colaboradores",
       desc: "Bienestar médico para tus colaboradores con condiciones de grupo.",
@@ -256,7 +256,7 @@ export const insuranceData = {
       id: "vida-colectiva",
       title: "Vida colectiva",
       tag: "Para tu equipo",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1795210897/Vida_Colectiva_qrhq1g.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849132/ta-focando-LOuffSFpWQI-unsplash_ngyksr.jpg",
       highlight: "Respaldo para sus familias",
       badge: "Protección integral",
       desc: "Respaldo para las familias de tu equipo.",
@@ -272,7 +272,7 @@ export const insuranceData = {
       id: "autos-colectiva",
       title: "Autos y motos colectiva",
       tag: "Para tu equipo",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1795210903/Autos_y_Motos_Colectiva_bmtfcs.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849139/junior-reis-98AVD0fctzA-unsplash_odwhu8.jpg",
       highlight: "Descuento por volumen",
       badge: "Vehículos del grupo",
       desc: "Protección para los vehículos de tu organización o grupo.",
@@ -288,7 +288,7 @@ export const insuranceData = {
       id: "hogar-colectiva",
       title: "Hogar colectiva",
       tag: "Para tu equipo",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1795210897/Hogar_Colectiva_agibyh.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1791481832/card-hogar_jqcyxg.jpg",
       highlight: "Beneficios de grupo para la casa",
       badge: "Tranquilidad familiar",
       desc: "Beneficios en protección del hogar para los miembros de tu grupo.",
@@ -304,7 +304,7 @@ export const insuranceData = {
       id: "accidentes-colectiva",
       title: "Accidentes colectiva",
       tag: "Para tu equipo",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793850992/sasun-bughdaryan-S52_QspnHYI-unsplash_vfpdf1.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849133/holly-mandarich-UVyOfX3v0Ls-unsplash_bg1e5c.jpg",
       highlight: "Cobertura para todo el equipo",
       badge: "Eventos y labores",
       desc: "Cobertura ante accidentes para todo tu equipo.",
@@ -320,7 +320,7 @@ export const insuranceData = {
       id: "pac-sura",
       title: "PAC SURA",
       tag: "Para tu equipo",
-      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1795210897/PAC_Sura_gggezc.jpg",
+      image: "https://res.cloudinary.com/mrjnagvc/image/upload/f_auto,q_auto,w_800/v1793849134/young-family-with-their-sons-home-having-fun_fdtwty.jpg",
       highlight: "Mejora la atención en salud",
       badge: "Plan Complementario",
       desc: "El plan complementario que mejora la atención de salud de tu grupo.",
@@ -335,7 +335,7 @@ export const insuranceData = {
   ]
 };
 
-// 2. Directorio Oficial de Aseguradoras Aliadas y Líneas 24/7 (14 Aseguradoras)
+// 2. Directorio Oficial de Aseguradoras Aliadas y Líneas 24/7
 export const insurersDirectory = [
   {
     id: "sura",
@@ -344,16 +344,18 @@ export const insurersDirectory = [
     nationalPhone: "01 8000 51 8888",
     cellDial: "tel:#888",
     logoColor: "#0033A0",
-    specialty: "Salud, Autos y Vida"
+    specialty: "Líder en Salud, Autos y Vida",
+    description: "Asistencia de grúa, choque, urgencias médicas y hogar 24/7."
   },
   {
     id: "mapfre",
     name: "MAPFRE",
-    shortCode: "#624",
+    shortCode: "#324",
     nationalPhone: "01 8000 919 738",
-    cellDial: "tel:#624",
+    cellDial: "tel:#324",
     logoColor: "#D81E05",
-    specialty: "Autos, Empresas y Hogar"
+    specialty: "Autos, Empresas y Hogar",
+    description: "Atención inmediata en carretera y siniestros a nivel nacional."
   },
   {
     id: "bolivar",
@@ -362,162 +364,60 @@ export const insurersDirectory = [
     nationalPhone: "01 8000 123 322",
     cellDial: "tel:#322",
     logoColor: "#1B7E36",
-    specialty: "Salud, Vida, Autos y Cumplimiento"
+    specialty: "Salud, Vida, Autos y Cumplimiento",
+    description: "Asistencia verde 24 horas y orientación en accidentes."
   },
   {
     id: "allianz",
     name: "Allianz Colombia",
     shortCode: "#265",
-    nationalPhone: "01 8000 513 500",
+    nationalPhone: "01 8000 513 888",
     cellDial: "tel:#265",
     logoColor: "#003780",
-    specialty: "Salud, Autos y Empresas"
+    specialty: "Salud Premium, Autos y Empresas",
+    description: "Red médica nacional y asistencia vehicular de alta gama."
   },
   {
-    id: "hdi",
-    name: "HDI Seguros",
+    id: "liberty",
+    name: "Liberty Seguros",
     shortCode: "#224",
     nationalPhone: "01 8000 113 390",
     cellDial: "tel:#224",
-    logoColor: "#007A33",
-    specialty: "Autos, Cumplimiento y Todo Riesgo"
+    logoColor: "#1E2B4D",
+    specialty: "Autos, Cumplimiento y Todo Riesgo",
+    description: "Atención prioritaria en carretera y siniestros empresariales."
   },
   {
     id: "sbs",
     name: "SBS Seguros",
-    shortCode: "#360",
-    nationalPhone: "01 8000 911 360",
-    cellDial: "tel:#360",
+    shortCode: "#727",
+    nationalPhone: "01 8000 522 727",
+    cellDial: "tel:#727",
     logoColor: "#5A2B81",
-    specialty: "Patrimonio, Flotas y Cumplimiento"
+    specialty: "Patrimonio, Flotas y Cumplimiento",
+    description: "Línea rápida para reporte de daños, pólizas y asistencias."
   },
   {
     id: "panamerican",
     name: "Pan American Life",
-    shortCode: "601 756 2323",
-    nationalPhone: "601 756 2323",
-    cellDial: "tel:6017562323",
+    shortCode: "01 8000 913 232",
+    nationalPhone: "01 8000 913 232",
+    cellDial: "tel:018000913232",
     logoColor: "#0D5C75",
-    specialty: "Vida Individual y Colectiva"
+    specialty: "Vida Individual y Colectiva",
+    description: "Especialistas en protección de vida y salud internacional."
   },
   {
     id: "qualitas",
     name: "Qualitas Seguros",
-    shortCode: "#963, opción 1",
-    nationalPhone: "601 657 9650",
-    cellDial: "tel:#963",
+    shortCode: "01 8000 180 044",
+    nationalPhone: "01 8000 180 044",
+    cellDial: "tel:018000180044",
     logoColor: "#6C205E",
-    specialty: "Autos y Movilidad Especializada"
-  },
-  {
-    id: "solidaria",
-    name: "Solidaria",
-    shortCode: "#789",
-    nationalPhone: "01 8000 512 021",
-    cellDial: "tel:#789",
-    logoColor: "#005596",
-    specialty: "Autos, Hogar, Vida y Cumplimiento"
-  },
-  {
-    id: "estado",
-    name: "Seguros del Estado",
-    shortCode: "#388",
-    nationalPhone: "601 742 1075",
-    cellDial: "tel:#388",
-    logoColor: "#004B87",
-    specialty: "Cumplimiento, Autos y Generales"
-  },
-  {
-    id: "mundial",
-    name: "Mundial",
-    shortCode: "#935",
-    nationalPhone: "01 8000 111 935",
-    cellDial: "tel:#935",
-    logoColor: "#E30613",
-    specialty: "SOAT, Cumplimiento y Movilidad"
-  },
-  {
-    id: "previsora",
-    name: "Previsora",
-    shortCode: "#345",
-    nationalPhone: "01 8000 910 554",
-    cellDial: "tel:#345",
-    logoColor: "#0069B4",
-    specialty: "Hogar, Autos, Vida y Empresas"
-  },
-  {
-    id: "axa",
-    name: "AXA Colpatria",
-    shortCode: "#247",
-    nationalPhone: "01 8000 512 620",
-    cellDial: "tel:#247",
-    logoColor: "#00008F",
-    specialty: "Salud, Autos, Vida y Riesgos"
-  },
-  {
-    id: "equidad",
-    name: "La Equidad",
-    shortCode: "#324",
-    nationalPhone: "01 8000 919 538",
-    cellDial: "tel:#324",
-    logoColor: "#00843D",
-    specialty: "Autos, Vida, Hogar y Empresarial"
+    specialty: "Autos y Movilidad Especializada",
+    description: "Respaldo y grúa para vehículos particulares y de trabajo."
   }
 ];
-
-/**
- * Logos oficiales en una sola tinta blanca sobre el color de cada aseguradora
- */
-const insurerLogoAssets = {
-  sura: { file: 'sura.svg', invertWhite: false, sizeClass: 'logo-medium' },
-  mapfre: { file: 'mapfre.svg', invertWhite: false, sizeClass: 'logo-ultrawide' },
-  bolivar: { file: 'bolivar.svg', invertWhite: false, sizeClass: 'logo-boost' },
-  allianz: { file: 'allianz.svg', invertWhite: false, sizeClass: 'logo-ultrawide' },
-  hdi: { file: 'hdi.svg', invertWhite: false, sizeClass: 'logo-medium' },
-  panamerican: { file: 'panamerican.svg', invertWhite: false, sizeClass: 'logo-boost' },
-  qualitas: { file: 'qualitas.svg', invertWhite: false, sizeClass: 'logo-tall' },
-  solidaria: { file: 'solidaria.svg', invertWhite: false, sizeClass: 'logo-boost' },
-  estado: { file: 'estado.png', invertWhite: true, sizeClass: 'logo-wide' },
-  mundial: { file: 'mundial.svg', invertWhite: false, sizeClass: 'logo-compact-wide' },
-  previsora: { file: 'previsora.png', invertWhite: true, sizeClass: 'logo-ultrawide' },
-  axa: { file: 'axa-colpatria.png', invertWhite: true, sizeClass: 'logo-medium' },
-  equidad: { file: 'equidad.svg', invertWhite: false, sizeClass: 'logo-tall' }
-};
-
-function getInsurerLogoSvg(id, className = 'insurer-svg-logo') {
-  const ins = insurersDirectory.find(i => i.id === id);
-  const bgColor = ins ? ins.logoColor : '#3E5A47';
-  const label = ins ? ins.name : id;
-  const asset = insurerLogoAssets[id];
-
-  if (asset) {
-    const imgClasses = [
-      'insurer-brand-img',
-      asset.sizeClass || 'logo-medium',
-      asset.invertWhite ? 'is-inverted-white' : ''
-    ].filter(Boolean).join(' ');
-
-    return `
-      <div class="insurer-brand-pill ${className}" style="background-color: ${bgColor};" title="${label}">
-        <img src="/logos/insurers/${asset.file}" alt="${label}" class="${imgClasses}" loading="lazy" />
-      </div>
-    `;
-  }
-
-  // Fallback vectorial limpio en una tinta blanca (SBS Seguros Colombia)
-  if (id === 'sbs') {
-    return `
-      <div class="insurer-brand-pill ${className}" style="background-color: ${bgColor};" title="${label}">
-        <svg viewBox="0 0 112 36" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SBS Seguros" class="insurer-brand-img logo-medium">
-          <text x="56" y="20" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="18" fill="#FFFFFF" letter-spacing="2.2">SBS</text>
-          <text x="56" y="31" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="8" fill="#FFFFFF" fill-opacity="0.9" letter-spacing="1.4">SEGUROS</text>
-        </svg>
-      </div>
-    `;
-  }
-
-  return `<span class="insurer-badge-icon" style="background:${bgColor};color:#fff;">${label.substring(0, 1).toUpperCase()}</span>`;
-}
 
 // Estado del Paquete Unificado
 let selectedBundle = ['salud', 'auto'];
@@ -532,11 +432,15 @@ const bundleItems = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-  initScrollAnimations();
+  const legacyRoutes = {portafolio:'/polizas/', paquete:'/polizas/#paquete', cotizador:'/cotizador/', 'como-trabajamos':'/como-trabajamos/', siniestros:'/siniestros/', equipo:'/nosotros/', blog:'/blog/', faq:'/preguntas-frecuentes/', contacto:'/contactar/#contacto'};
+  if (window.location.pathname === '/' && legacyRoutes[window.location.hash.slice(1)]) {
+    window.location.replace(legacyRoutes[window.location.hash.slice(1)]);
+    return;
+  }
+  initAlliesTicker();
   initNavbarScroll();
   initMobileNav();
   initHeroCategorySelector();
-  initAlliesTicker();
   initPortfolioTabs();
   initCotizadoresSection();
   initTimelineScroll();
@@ -544,11 +448,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initBundleBuilder();
   initFaqAccordion();
   initContactForm();
-  initDirectoryModal();
   initQuoteModal();
   initPortfolioDetailsModal();
-  initCardTiltEffect();
-  initParallaxEffects();
+  initScrollAnimations();
 });
 
 /**
@@ -578,8 +480,21 @@ function initMobileNav() {
 
   if (!toggleBtn || !overlay) return;
 
-  const openDrawer = () => overlay.classList.add('is-open');
-  const closeDrawer = () => overlay.classList.remove('is-open');
+  const openDrawer = () => {
+    overlay.classList.add('is-open');
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    closeBtn?.focus();
+  };
+  const closeDrawer = () => {
+    overlay.classList.remove('is-open');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    toggleBtn.focus();
+  };
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && overlay.classList.contains('is-open')) closeDrawer();
+  });
 
   toggleBtn.addEventListener('click', openDrawer);
   if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
@@ -596,45 +511,15 @@ function initMobileNav() {
  * Hero Category Selector: "¿Qué quieres proteger hoy?"
  */
 function initHeroCategorySelector() {
-  const buttons = document.querySelectorAll('.hero-tag-btn');
-  if (!buttons.length) return;
-
-  buttons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const target = btn.dataset.protectTarget; // e.g. "salud", "auto", "empresa", "equipo", etc.
-
-      // Scroll to cotizador or portafolio
-      if (target === 'auto') {
-        const cotizador = document.getElementById('cotizador');
-        if (cotizador) {
-          cotizador.scrollIntoView({ behavior: 'smooth' });
-          switchCotizadorTab('autos');
-        }
-      } else if (target === 'salud') {
-        const cotizador = document.getElementById('cotizador');
-        if (cotizador) {
-          cotizador.scrollIntoView({ behavior: 'smooth' });
-          switchCotizadorTab('salud');
-        }
-      } else if (target === 'empresa') {
-        const portafolio = document.getElementById('portafolio');
-        if (portafolio) {
-          portafolio.scrollIntoView({ behavior: 'smooth' });
-          switchPortfolioTab('empresariales');
-        }
-      } else if (target === 'equipo') {
-        const portafolio = document.getElementById('portafolio');
-        if (portafolio) {
-          portafolio.scrollIntoView({ behavior: 'smooth' });
-          switchPortfolioTab('colectivas');
-        }
+  document.querySelectorAll('.hero-tag-btn').forEach(btn => {
+    btn.addEventListener('click', (event) => {
+      event.preventDefault();
+      const target = btn.dataset.protectTarget;
+      if (target === 'auto' || target === 'salud') {
+        window.location.assign(`/cotizador/?tipo=${target === 'auto' ? 'autos' : 'salud'}`);
       } else {
-        const portafolio = document.getElementById('portafolio');
-        if (portafolio) {
-          portafolio.scrollIntoView({ behavior: 'smooth' });
-          switchPortfolioTab('personas');
-        }
+        const category = target === 'empresa' ? 'empresariales' : target === 'equipo' ? 'colectivas' : 'personas';
+        window.location.assign(`/polizas/?categoria=${category}`);
       }
     });
   });
@@ -648,7 +533,10 @@ function initPortfolioTabs() {
   const cardsContainer = document.getElementById('portfolioCardsGrid');
   if (!tabButtons.length || !cardsContainer) return;
 
-  renderPortfolioCards('personas', true);
+  const category = new URLSearchParams(window.location.search).get('categoria');
+  const initialCategory = Object.hasOwn(insuranceData, category) ? category : 'personas';
+  tabButtons.forEach(btn => btn.classList.toggle('is-active', btn.dataset.category === initialCategory));
+  renderPortfolioCards(initialCategory);
 
   tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -673,20 +561,20 @@ function switchPortfolioTab(category) {
   cardsContainer.style.transition = 'all 0.22s ease';
 
   setTimeout(() => {
-    renderPortfolioCards(category, false);
+    renderPortfolioCards(category);
     cardsContainer.style.opacity = '1';
     cardsContainer.style.transform = 'translateY(0)';
   }, 220);
 }
 
-function renderPortfolioCards(category, isInitial = false) {
+function renderPortfolioCards(category) {
   const container = document.getElementById('portfolioCardsGrid');
   if (!container) return;
 
   const items = insuranceData[category] || insuranceData.personas;
 
   container.innerHTML = items.map((item, index) => `
-    <article class="portfolio-card reveal-fade-up" data-card-id="${item.id}" data-category="${category}" style="--reveal-delay: ${(index % 3) * 90}ms;">
+    <article class="portfolio-card reveal-fade-up is-revealed" data-card-id="${item.id}" data-category="${category}">
       <div class="portfolio-card-media">
         <img src="${item.image}" alt="${item.title}" class="portfolio-card-img" loading="lazy" />
         <span class="portfolio-card-tag">${item.tag}</span>
@@ -730,14 +618,6 @@ function renderPortfolioCards(category, isInitial = false) {
       openQuoteModalWithPolicy(btn.dataset.policy);
     });
   });
-
-  if (isInitial) {
-    observeRevealElements(container);
-  } else {
-    requestAnimationFrame(() => {
-      container.querySelectorAll('.reveal-fade-up').forEach(el => el.classList.add('is-revealed'));
-    });
-  }
 }
 
 /**
@@ -753,6 +633,9 @@ function initCotizadoresSection() {
     tabAutos.addEventListener('click', () => switchCotizadorTab('autos'));
     tabSalud.addEventListener('click', () => switchCotizadorTab('salud'));
   }
+
+  const initialType = new URLSearchParams(window.location.search).get('tipo');
+  if (initialType === 'salud' || initialType === 'autos') switchCotizadorTab(initialType);
 
   // Format Placa Input (e.g. ABC123 -> ABC-123)
   const placaInput = document.getElementById('cotizAutoPlaca');
@@ -876,90 +759,37 @@ function initTimelineScroll() {
 }
 
 /**
- * Sección 2. Cinta de Aliados (Solo logos oficiales en una tinta blanca a todo color sobre su badge de marca)
- */
-function initAlliesTicker() {
-  const track = document.getElementById('alliesTickerTrack');
-  if (!track) return;
-
-  const renderSet = () => insurersDirectory.map(ins => `
-    <div class="ally-logo-badge" title="${ins.name}">
-      ${getInsurerLogoSvg(ins.id, 'ally-svg-logo')}
-    </div>
-  `).join('');
-
-  track.innerHTML = renderSet() + renderSet();
-}
-
-/**
- * Sección 8. Siniestros & Directorio de Aseguradoras 24/7 (14 aseguradoras + buscador)
+ * Sección 8. Siniestros & Directorio de Aseguradoras 24/7
  */
 function initSiniestrosDirectory() {
   const grid = document.getElementById('siniestrosInsurersGrid');
-  const searchInput = document.getElementById('siniestrosSearchInput');
   if (!grid) return;
 
-  const renderCards = (items, isInitial = false) => {
-    if (!items.length) {
-      grid.innerHTML = `
-        <div class="siniestros-empty-state">
-          No encontramos aseguradoras con ese criterio. Intenta con otro nombre o ramo.
-        </div>
-      `;
-      return;
-    }
-
-    grid.innerHTML = items.map((ins, index) => `
-      <div class="insurer-card reveal-fade-up" style="--reveal-delay: ${(index % 4) * 75}ms;">
-        <div class="insurer-card-header">
-          <div class="insurer-logo-wrap">
-            ${getInsurerLogoSvg(ins.id, 'insurer-svg-logo')}
-          </div>
-          <div>
-            <h4 class="insurer-name">${ins.name}</h4>
-            <span class="insurer-specialty">${ins.specialty}</span>
-          </div>
-        </div>
-        <div class="insurer-actions">
-          <a href="${ins.cellDial}" class="btn btn-call-short">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            <span>Celular: ${ins.shortCode}</span>
-          </a>
-          <a href="tel:${ins.nationalPhone.replace(/\s+/g, '')}" class="btn btn-call-national" title="Línea nacional o fija">
-            <span>Línea fija / nacional: ${ins.nationalPhone}</span>
-          </a>
+  grid.innerHTML = insurersDirectory.map(ins => `
+    <div class="insurer-card reveal-fade-up">
+      <div class="insurer-card-header">
+        <span class="insurer-badge-icon" style="background:${ins.logoColor}; color:#fff;">
+          ${ins.name.substring(0, 1)}
+        </span>
+        <div>
+          <h4 class="insurer-name">${ins.name}</h4>
+          <span class="insurer-specialty">${ins.specialty}</span>
         </div>
       </div>
-    `).join('');
-
-    if (isInitial) {
-      observeRevealElements(grid);
-    } else {
-      requestAnimationFrame(() => {
-        grid.querySelectorAll('.reveal-fade-up').forEach(el => el.classList.add('is-revealed'));
-      });
-    }
-  };
-
-  renderCards(insurersDirectory, true);
-
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      const q = e.target.value.trim().toLowerCase();
-      if (!q) {
-        renderCards(insurersDirectory, false);
-        return;
-      }
-      const filtered = insurersDirectory.filter(ins =>
-        ins.name.toLowerCase().includes(q) ||
-        ins.specialty.toLowerCase().includes(q) ||
-        ins.shortCode.toLowerCase().includes(q)
-      );
-      renderCards(filtered, false);
-    });
-  }
+      <p class="insurer-desc">${ins.description}</p>
+      <div class="insurer-actions">
+        <a href="${ins.cellDial}" class="btn btn-call-short">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>Marcar ${ins.shortCode}</span>
+        </a>
+        <a href="tel:${ins.nationalPhone.replace(/\s+/g, '')}" class="btn btn-call-national" title="Línea nacional gratuita">
+          <span>${ins.nationalPhone}</span>
+        </a>
+      </div>
+    </div>
+  `).join('');
 }
 
 /**
@@ -1101,92 +931,6 @@ function initContactForm() {
 /**
  * Directorio Modal Flotante (Botón flotante "Directorio 24/7")
  */
-function initDirectoryModal() {
-  const modal = document.getElementById('directoryModal');
-  const openBtns = document.querySelectorAll('[data-open-directory]');
-  const closeBtn = document.getElementById('directoryModalClose');
-  const expandBtns = modal ? modal.querySelectorAll('[data-expand-siniestros]') : [];
-  const searchInput = document.getElementById('directoryModalSearch');
-  const listContainer = document.getElementById('directoryModalList');
-
-  if (!modal) return;
-
-  const renderModalList = (items) => {
-    if (!listContainer) return;
-    if (!items.length) {
-      listContainer.innerHTML = `<div style="padding:20px 0; text-align:center; color:var(--text-muted); font-size:0.9rem;">No encontramos aseguradoras con ese nombre o ramo.</div>`;
-      return;
-    }
-    listContainer.innerHTML = items.map(ins => `
-      <div class="dir-modal-item">
-        <div class="dir-modal-left">
-          ${getInsurerLogoSvg(ins.id, 'dir-modal-svg-logo')}
-          <div>
-            <div class="dir-modal-name">${ins.name}</div>
-            <div class="dir-modal-phone">${ins.nationalPhone}</div>
-          </div>
-        </div>
-        <a href="${ins.cellDial}" class="btn btn-call-sm">
-          <span>Llamar ${ins.shortCode}</span>
-        </a>
-      </div>
-    `).join('');
-  };
-
-  renderModalList(insurersDirectory);
-
-  const openModal = (e) => {
-    if (e) e.preventDefault();
-    if (searchInput) searchInput.value = '';
-    renderModalList(insurersDirectory);
-    modal.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeModal = () => {
-    modal.classList.remove('is-open');
-    document.body.style.overflow = '';
-  };
-
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      const q = e.target.value.trim().toLowerCase();
-      if (!q) {
-        renderModalList(insurersDirectory);
-        return;
-      }
-      const filtered = insurersDirectory.filter(ins =>
-        ins.name.toLowerCase().includes(q) ||
-        ins.specialty.toLowerCase().includes(q) ||
-        ins.shortCode.toLowerCase().includes(q)
-      );
-      renderModalList(filtered);
-    });
-  }
-
-  expandBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      closeModal();
-      const siniestrosSection = document.getElementById('siniestros');
-      if (siniestrosSection) {
-        siniestrosSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-
-  openBtns.forEach(b => b.addEventListener('click', openModal));
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('is-open')) {
-      closeModal();
-    }
-  });
-}
-
 /**
  * Cotizador Modal General
  */
@@ -1317,28 +1061,13 @@ function openDetailsModal(cardId, category) {
 }
 
 /**
- * Scroll Animations (Floating Fade-In via IntersectionObserver)
+ * Scroll Animations (IntersectionObserver)
  */
-let revealObserver = null;
-
-function observeRevealElements(container = document) {
-  const elements = container.querySelectorAll('.reveal-fade-up:not(.is-revealed)');
+function initScrollAnimations() {
+  const elements = document.querySelectorAll('.reveal-fade-up');
   if (!elements.length) return;
 
-  if (revealObserver) {
-    elements.forEach(el => revealObserver.observe(el));
-  } else {
-    elements.forEach(el => el.classList.add('is-revealed'));
-  }
-}
-
-function initScrollAnimations() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.querySelectorAll('.reveal-fade-up').forEach(el => el.classList.add('is-revealed'));
-    return;
-  }
-
-  revealObserver = new IntersectionObserver((entries, obs) => {
+  const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-revealed');
@@ -1346,122 +1075,123 @@ function initScrollAnimations() {
       }
     });
   }, {
-    rootMargin: '0px 0px -60px 0px',
-    threshold: 0.08
+    rootMargin: '0px 0px -40px 0px',
+    threshold: 0.1
   });
 
-  observeRevealElements(document);
+  elements.forEach(el => observer.observe(el));
 }
 
-/**
- * Efectos Parallax suaves ligados al scroll (foto anclada vs. textos reactivos)
- */
-function initParallaxEffects() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  const heroSection = document.getElementById('hero');
-  const heroImg = document.querySelector('[data-parallax="hero-img"]');
-  const heroQuote = document.querySelector('[data-parallax="hero-quote"]');
-  const heroDecor = document.querySelector('[data-parallax="hero-decor"]');
-  const parallaxImgs = document.querySelectorAll('[data-parallax-img]');
-  const parallaxFloats = document.querySelectorAll('[data-parallax-float]');
-
-  if (!heroImg && !heroQuote && !heroDecor && !parallaxImgs.length && !parallaxFloats.length) return;
-
-  let ticking = false;
-
-  const updateParallax = () => {
-    ticking = false;
-    const scrollY = window.scrollY;
-    const vh = window.innerHeight || 800;
-    const isMobile = window.innerWidth <= 900;
-    const damp = isMobile ? 0.45 : 1;
-
-    // 1. Hero: la foto permanece suavemente anclada mientras la tarjeta flotante y el decor responden al scroll
-    if (heroSection) {
-      const heroLimit = heroSection.offsetHeight + 120;
-      if (scrollY <= heroLimit) {
-        const y = Math.min(scrollY, heroLimit);
-        if (heroImg) {
-          heroImg.style.transform = `translate3d(0, ${(y * 0.16 * damp).toFixed(1)}px, 0) scale(1.09)`;
-        }
-        if (heroQuote) {
-          heroQuote.style.transform = `translate3d(0, ${(-y * 0.11 * damp).toFixed(1)}px, 0)`;
-        }
-        if (heroDecor) {
-          heroDecor.style.transform = `translate3d(0, ${(y * 0.22 * damp).toFixed(1)}px, 0)`;
-        }
-      }
-    }
-
-    // 2. Fotos interiores en Equipo y Blog: efecto ventana con imagen estable dentro del marco
-    parallaxImgs.forEach((img) => {
-      const frame = img.parentElement;
-      if (!frame) return;
-      const rect = frame.getBoundingClientRect();
-      if (rect.bottom < -60 || rect.top > vh + 60) return;
-      const speed = parseFloat(img.dataset.parallaxSpeed || '0.14');
-      const rawProgress = (rect.top + rect.height / 2 - vh / 2) / vh;
-      const progress = Math.max(-1, Math.min(1, rawProgress));
-      const offsetY = (progress * speed * 130 * damp).toFixed(1);
-      img.style.transform = `translate3d(0, ${offsetY}px, 0) scale(1.14)`;
-    });
-
-    // 3. Bloques de texto / destacados reactivos al scroll (solo escritorio)
-    parallaxFloats.forEach((el) => {
-      if (isMobile) {
-        el.style.transform = '';
-        return;
-      }
-      const rect = el.getBoundingClientRect();
-      if (rect.bottom < -80 || rect.top > vh + 80) return;
-      const speed = parseFloat(el.dataset.parallaxSpeed || '-0.15');
-      const rawProgress = (rect.top + rect.height / 2 - vh / 2) / vh;
-      const progress = Math.max(-1, Math.min(1, rawProgress));
-      const offsetY = (progress * speed * 110).toFixed(1);
-      el.style.transform = `translate3d(0, ${offsetY}px, 0)`;
-    });
+// Keep the same gentle speed across browser widths and after logos finish loading.
+function initAlliesTicker() {
+  const track = document.querySelector('.ticker-track');
+  if (!track) return;
+  const updateSpeed = () => {
+    const items = [...track.children];
+    const firstDuplicate = items[items.length / 2];
+    if (!firstDuplicate) return;
+    const distance = firstDuplicate.offsetLeft - items[0].offsetLeft;
+    track.style.setProperty('--ticker-distance', `${distance}px`);
+    track.style.setProperty('--ticker-duration', `${distance / 28}s`);
   };
-
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      ticking = true;
-      requestAnimationFrame(updateParallax);
-    }
-  }, { passive: true });
-
-  window.addEventListener('resize', () => {
-    if (!ticking) {
-      ticking = true;
-      requestAnimationFrame(updateParallax);
-    }
-  }, { passive: true });
-
-  updateParallax();
+  updateSpeed();
+  new ResizeObserver(updateSpeed).observe(track);
+  document.fonts?.ready.then(updateSpeed);
 }
 
-/**
- * Subtle 3D tilt effect on cards following cursor (desktop pointer)
- */
-function initCardTiltEffect() {
-  if (!window.matchMedia('(pointer: fine)').matches) return;
-
-  const selectors = '.portfolio-card, .pillar-4-card, .team-card, .blog-card';
-  document.addEventListener('mousemove', (e) => {
-    const card = e.target.closest(selectors);
-    if (!card) return;
-    const rect = card.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    const rotateX = (-y * 5).toFixed(2);
-    const rotateY = (x * 5).toFixed(2);
-    card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+function initProtectionCarousel() {
+  const root = document.querySelector('.protection-carousel');
+  if (!root) return;
+  const viewport = root.querySelector('.protection-viewport');
+  const slides = [...root.querySelectorAll('.protection-slide')];
+  let index = 0;
+  let timer;
+  let pointerStart = null;
+  let swiped = false;
+  let hoverDirection = 0;
+  let nextMoveAt = 0;
+  const count = slides.length;
+  function render() {
+    const width = slides[0].offsetWidth;
+    slides.forEach((slide, i) => {
+      const distance = ((i - index + count + Math.floor(count / 2)) % count) - Math.floor(count / 2);
+      const active = distance === 0;
+      const visible = Math.abs(distance) <= 2;
+      // Wrap the invisible outer card without flying it across the viewport.
+      if (Math.abs(distance - Number(slide.dataset.position ?? distance)) > 1) {
+        slide.style.transition = 'none';
+      }
+      slide.style.transform = `translateX(calc(-50% + ${distance * (width + 24)}px)) perspective(1400px) rotateY(${distance === 0 ? 0 : -Math.sign(distance) * 28}deg) scale(${active ? 1 : .94})`;
+      slide.style.opacity = visible ? '1' : '0';
+      slide.style.zIndex = String(count - Math.abs(distance));
+      slide.style.pointerEvents = visible ? 'auto' : 'none';
+      slide.classList.toggle('is-active', active);
+      slide.tabIndex = active ? 0 : -1;
+      slide.setAttribute('aria-hidden', String(!visible));
+      slide.dataset.position = distance;
+      if (slide.style.transition === 'none') {
+        slide.getBoundingClientRect();
+        slide.style.transition = '';
+      }
+    });
+  }
+  function schedule(delay = hoverDirection ? 2400 : 4200) {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      // A side hover takes priority over autoplay; keyboard focus pauses both.
+      if (!document.hidden && !root.querySelector(':focus-visible') && pointerStart === null) move(hoverDirection || 1);
+      else schedule();
+    }, Math.max(delay, nextMoveAt - performance.now()));
+  }
+  function move(direction) {
+    index = (index + direction + count) % count;
+    nextMoveAt = performance.now() + 1900;
+    render(); schedule();
+  }
+  function setHoverDirection(direction) {
+    if (direction === hoverDirection) return;
+    hoverDirection = direction;
+    // A short dwell avoids accidental movement while crossing the carousel.
+    schedule(direction ? 650 : 4200);
+  }
+  viewport.addEventListener('pointermove', event => {
+    if (event.pointerType !== 'mouse' || pointerStart !== null) return;
+    const card = event.target.closest('.protection-slide');
+    const bounds = viewport.getBoundingClientRect();
+    const center = bounds.left + bounds.width / 2;
+    const halfCard = slides[0].offsetWidth / 2;
+    // Use the fixed center slot, not the moving card's index, to avoid reversals.
+    const direction = !card ? 0 : event.clientX < center - halfCard ? -1 : event.clientX > center + halfCard ? 1 : 0;
+    setHoverDirection(direction);
   });
-
-  document.addEventListener('mouseout', (e) => {
-    const card = e.target.closest(selectors);
-    if (card && !card.contains(e.relatedTarget)) {
-      card.style.transform = '';
+  viewport.addEventListener('pointerleave', () => setHoverDirection(0));
+  root.querySelector('[data-carousel-prev]').addEventListener('click', () => move(-1));
+  root.querySelector('[data-carousel-next]').addEventListener('click', () => move(1));
+  viewport.addEventListener('keydown', event => {
+    if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+      event.preventDefault(); move(event.key === 'ArrowRight' ? 1 : -1);
     }
   });
+  viewport.addEventListener('pointerdown', event => { setHoverDirection(0); pointerStart = event.clientX; swiped = false; });
+  window.addEventListener('pointerup', event => {
+    if (pointerStart === null) return;
+    const delta = event.clientX - pointerStart;
+    pointerStart = null;
+    if (Math.abs(delta) > 40) { swiped = true; move(delta < 0 ? 1 : -1); }
+  });
+  viewport.addEventListener('pointercancel', () => { pointerStart = null; });
+  viewport.addEventListener('dragstart', event => event.preventDefault());
+  viewport.addEventListener('click', event => {
+    if (swiped) { event.preventDefault(); swiped = false; return; }
+    const slide = event.target.closest('.protection-slide');
+    if (slide && !slide.classList.contains('is-active')) {
+      event.preventDefault(); index = slides.indexOf(slide); render(); schedule();
+    }
+  });
+  document.addEventListener('visibilitychange', () => { hoverDirection = 0; schedule(); });
+  new ResizeObserver(render).observe(viewport);
+  render(); schedule();
 }
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initProtectionCarousel);
+else initProtectionCarousel();
