@@ -2618,10 +2618,17 @@ body:has(.siniestros-section) .navbar-pill.is-scrolled {
 .insurer-specialty { min-height:44px; margin:0; }
 .insurer-actions { margin-top:auto; }
 .insurer-actions .btn { white-space:normal; text-align:center; }
-.ally-logo-badge { flex:0 0 216px; height:92px; padding:16px 22px; border:0; border-radius:12px; background:var(--insurer-brand); filter:grayscale(1); transition:filter .35s ease,transform .35s ease; }
-.ally-logo-badge img { width:172px; height:60px; object-fit:contain; }
+.ally-logo-badge { flex:0 0 216px; height:92px; padding:16px 22px; border:0; border-radius:12px; background:var(--insurer-brand); justify-content:center; filter:none; transition:transform .35s ease; }
+.ally-logo-badge img { display:block; width:var(--logo-width, 156px); height:var(--logo-height, 48px); max-width:100%; object-fit:contain; }
+/* Optical sizing: compact marks need less area than detailed wordmarks. */
+.ally-logo-badge:has(img[src$="hdi.svg"]) { --logo-width:110px; --logo-height:38px; }
+.ally-logo-badge:has(img[src$="sbs.png"]) { --logo-width:146px; --logo-height:44px; }
+.ally-logo-badge:has(img[src$="panamerican.svg"]) { --logo-width:168px; --logo-height:54px; }
+.ally-logo-badge:has(img[src$="qualitas.svg"]) { --logo-width:72px; --logo-height:58px; }
+.ally-logo-badge:has(img[src$="bolivar.svg"]) { --logo-width:156px; --logo-height:54px; }
 .ally-logo-badge:has(img[src$="sbs.png"]) { background:#fff; }
-.ally-logo-badge:hover { filter:grayscale(0); transform:scale(1.06); }
+.ally-logo-badge:hover { background:var(--insurer-brand); filter:none; transform:scale(1.03); }
+.ally-logo-badge:has(img[src$="sbs.png"]):hover { background:#fff; }
 .ticker-track { padding:8px 0; }
 .ticker-track-wrap:hover .ticker-track { animation-play-state:paused; }
 .floating-contact { position:fixed; right:20px; bottom:20px; z-index:1050; display:flex; flex-direction:column; align-items:flex-end; gap:10px; }
@@ -2631,7 +2638,7 @@ body:has(.siniestros-section) .navbar-pill.is-scrolled {
 .floating-contact a:focus-visible { outline:3px solid #91ad9a; outline-offset:3px; }
 footer { padding-bottom:150px !important; }
 .reveal-fade-up.is-revealed svg { animation:smileAppear .7s ease both; }
-@media(max-width:600px) { .floating-contact { right:12px; bottom:12px; gap:8px; } .floating-contact a { padding:11px 14px; font-size:11px; } .floating-contact svg { width:20px; height:20px; } .ally-logo-badge { flex-basis:180px; height:80px; } .ally-logo-badge img { width:136px; height:48px; } }
+@media(max-width:600px) { .floating-contact { right:12px; bottom:12px; gap:8px; } .floating-contact a { padding:11px 14px; font-size:11px; } .floating-contact svg { width:20px; height:20px; } .ally-logo-badge { flex-basis:180px; height:80px; } .ally-logo-badge img { width:calc(var(--logo-width, 156px) * .8); height:calc(var(--logo-height, 48px) * .8); } }
 .pillar-4-icon { width:68px; height:68px; background:#eaf0f4; color:#3F6D8A; }
 .pillar-4-icon svg { width:34px; height:34px; }
 .btn-outline:hover { border-color:#3F6D8A; color:#3F6D8A; }
