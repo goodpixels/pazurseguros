@@ -49,7 +49,7 @@
     <div class="header-inner-row">
       <!-- Brand Logo outside the menu, to the left, in dark version -->
       <a href="#" class="header-brand-logo" aria-label="Pazur Seguros Inicio">
-        <img src="/logo-dark.svg" alt="Pazur Seguros Logo" class="header-logo-img" />
+        <img src="/logo-header.svg" alt="Pazur Seguros Logo" class="header-logo-img" />
       </a>
 
       <!-- Floating Nav Pill with Links and Actions -->
@@ -99,7 +99,7 @@
     <div class="mobile-nav-drawer">
       <div>
         <div class="mobile-nav-header">
-          <img src="/logo-dark.svg" alt="Pazur Seguros" style="height: 26px;" />
+          <img src="/logo-header.svg" alt="Pazur Seguros" style="height: 31.2px;" />
           <button id="mobileNavClose" aria-label="Cerrar menú" style="font-size: 1.6rem; color: var(--text-dark); cursor:pointer;">&times;</button>
         </div>
         <nav class="mobile-nav-links">
@@ -143,12 +143,14 @@
 
           <!-- CTAs del Hero -->
           <div class="hero-ctas-row">
-            <button class="btn btn-sage" data-open-quote>
-              <span>Quiero mi asesoría</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </button>
+            <div class="hero-quote-dropdown">
+              <button type="button" class="btn btn-sage" id="heroQuoteToggle" aria-expanded="false" aria-controls="heroQuoteOptions">Cotiza y compara tus seguros <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="hero-quote-options" id="heroQuoteOptions" hidden>
+                <a href="/cotizador/?tipo=autos">Autos</a>
+                <a href="/cotizador/?tipo=motos">Motos</a>
+                <a href="/cotizador/?tipo=salud">Salud</a>
+              </div>
+            </div>
 
             <a href="#siniestros" class="btn btn-outline">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -415,114 +417,42 @@
 
           <!-- PANEL 2: SALUD -->
           <div id="panelCotizadorSalud" class="is-hidden">
-            <form id="formCotizadorSalud">
-              <div class="quiz-block">
-                <div class="quiz-question-title">
-                  <span>1. ¿Cuántas personas quieres proteger?</span>
-                </div>
-                <div class="quiz-options-pills">
-                  <label class="quiz-pill-label">
-                    <input type="radio" name="saludPersonas" value="Solo yo (1 persona)" />
-                    <span>👤 Solo yo</span>
-                  </label>
-                  <label class="quiz-pill-label">
-                    <input type="radio" name="saludPersonas" value="2 personas (pareja/familiar)" checked />
-                    <span>👥 2 personas (Pareja / Familiar)</span>
-                  </label>
-                  <label class="quiz-pill-label">
-                    <input type="radio" name="saludPersonas" value="Familia (3 a 4 personas)" />
-                    <span>👨‍👩‍👧 Familia (3 a 4 personas)</span>
-                  </label>
-                  <label class="quiz-pill-label">
-                    <input type="radio" name="saludPersonas" value="Grupo mayor a 5" />
-                    <span>🏢 Grupo o Colectivo (+5)</span>
-                  </label>
-                </div>
+            <aside class="health-contact-option">
+              <strong>¿Prefieres no compartir tus datos aquí?</strong>
+              <p>Habla directamente con un asesor: <a href="tel:+573054034164">305 403 4164</a> o <a href="https://wa.me/573054034164?text=Hola%2C%20quisiera%20asesor%C3%ADa%20para%20un%20seguro%20de%20salud" target="_blank" rel="noopener noreferrer">escríbenos por WhatsApp</a>.</p>
+            </aside>
+            <form id="formCotizadorSalud" name="cotizacion-salud" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="cotizacion-salud">
+              <input type="hidden" name="asegurados">
+              <p hidden><label>No completar <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+              <p class="health-form-intro">Cuéntanos a quiénes quieres proteger. Completa los datos de cada persona para que un asesor prepare las opciones de salud.</p>
+              <div id="healthApplicants">
+                <fieldset class="health-applicant">
+                  <legend>Persona 1</legend>
+                  <div class="form-grid-2">
+                    <label class="form-group">Nombre completo *<input class="form-input" data-person="nombre" autocomplete="name" maxlength="120" required></label>
+                    <label class="form-group">Cédula o documento de identidad *<input class="form-input" data-person="documento" inputmode="numeric" maxlength="30" required></label>
+                    <label class="form-group">Fecha de nacimiento *<input type="date" class="form-input" data-person="nacimiento" required></label>
+                    <label class="form-group">EPS actual *<input class="form-input" data-person="eps" placeholder="Nombre de la EPS o No tengo EPS" maxlength="100" required></label>
+                  </div>
+                  <button type="button" class="health-remove" hidden>Quitar persona</button>
+                </fieldset>
               </div>
-
+              <button type="button" class="btn btn-outline health-add" id="addHealthApplicant">Añadir otra persona</button>
               <div class="form-grid-2">
-                <div class="form-group">
-                  <label class="form-label">Edades aproximadas de los asegurados *</label>
-                  <input type="text" id="cotizSaludEdades" class="form-input" placeholder="Ej: 32 y 29 años, hijo de 4" required />
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Ciudad de residencia *</label>
-                  <input type="text" id="cotizSaludCiudad" class="form-input" value="Medellín / Área Metropolitana" required />
-                </div>
+                <label class="form-group">Nombre completo de contacto *<input id="cotizSaludNombre" name="nombre-contacto" class="form-input" autocomplete="name" maxlength="120" required></label>
+                <label class="form-group">Celular o WhatsApp *<input type="tel" id="cotizSaludTel" name="celular" class="form-input" autocomplete="tel" pattern="[+0-9 ()-]{7,20}" required></label>
+                <label class="form-group">Ciudad de residencia *<input id="cotizSaludCiudad" name="ciudad" class="form-input" autocomplete="address-level2" maxlength="100" required></label>
               </div>
-
-              <div class="form-grid-2">
-                <div class="form-group">
-                  <label class="form-label">Nombre de contacto *</label>
-                  <input type="text" id="cotizSaludNombre" class="form-input" placeholder="Ej: Carolina Montoya" required />
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Teléfono o WhatsApp *</label>
-                  <input type="tel" id="cotizSaludTel" class="form-input" placeholder="Ej: 305 403 4164" required />
-                </div>
-              </div>
-
-              <div class="quiz-block">
-                <div class="quiz-question-title">
-                  <span>2. ¿Qué es más importante para ti?</span>
-                </div>
-                <div class="quiz-options-pills">
-                  <label class="quiz-pill-label">
-                    <input type="radio" name="saludPrioridad" value="Precio accesible mensual" />
-                    <span>💰 Precio mensual accesible</span>
-                  </label>
-                  <label class="quiz-pill-label">
-                    <input type="radio" name="saludPrioridad" value="Acceso rápido a especialistas" checked />
-                    <span>🩺 Especialistas sin remisiones</span>
-                  </label>
-                  <label class="quiz-pill-label">
-                    <input type="radio" name="saludPrioridad" value="Red hospitalaria y urgencias premium" />
-                    <span>🏥 Hospitalización y red de clínicas premium</span>
-                  </label>
-                </div>
-              </div>
-
-              <div class="quiz-block">
-                <div class="quiz-question-title">
-                  <span>3. ¿Cuentas con EPS activa actualmente?</span>
-                </div>
-                <div class="quiz-options-pills">
-                  <label class="quiz-pill-label">
-                    <input type="radio" name="saludEps" value="Sí, EPS SURA" checked />
-                    <span>Sí, EPS SURA</span>
-                  </label>
-                  <label class="quiz-pill-label">
-                    <input type="radio" name="saludEps" value="Sí, otra EPS" />
-                    <span>Sí, otra EPS</span>
-                  </label>
-                  <label class="quiz-pill-label">
-                    <input type="radio" name="saludEps" value="No tengo EPS actualmente" />
-                    <span>No tengo EPS</span>
-                  </label>
-                </div>
-              </div>
-
-              <button type="submit" class="btn btn-sage" style="width: 100%; padding: 16px; font-size: 1.05rem;">
-                <span>Recibir mi cotización de Salud</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>
+              <label class="health-consent"><input type="checkbox" name="autorizacion" value="Aceptada" required> Autorizo a Pazur Seguros a usar estos datos para gestionar esta solicitud de cotización y contactarme. Cuento con autorización para compartir los datos de las personas incluidas.</label>
+              <p id="healthFormStatus" role="status" aria-live="polite"></p>
+              <p>Estamos habilitando el envío de solicitudes. Por ahora, contáctanos por teléfono o WhatsApp para cotizar.</p>
+              <button type="submit" class="btn btn-sage" style="width:100%" disabled>Envío en preparación</button>
             </form>
-
-            <!-- Confirmation state -->
-            <div id="cotizConfirmCard_salud" class="cotizador-confirm-card is-hidden">
-              <div class="confirm-check-icon" aria-hidden="true">→</div>
-              <h3 style="font-size: 1.4rem; font-weight:800; color:var(--text-dark); margin-bottom:8px;">
-                Falta un paso: envía tu solicitud
-              </h3>
-              <p style="color:var(--text-muted); margin-bottom:16px;">
-                Tus datos están listos, pero Pazur aún no ha recibido tu solicitud. Abre WhatsApp con el botón y envía el mensaje para que un asesor pueda ayudarte con tu cotización.
-              </p>
-              <div class="confirm-resume-text" style="font-size:0.9rem; font-weight:600; color:var(--color-sage); background:var(--color-sage-soft); padding:10px 16px; border-radius:8px; margin-bottom:20px;"></div>
-              <button class="btn btn-whatsapp" id="btnCotizSaludWa" style="width: 100%;">
-                <span>Abrir WhatsApp para enviar mi solicitud</span>
-              </button>
+            <div id="cotizConfirmCard_salud" class="cotizador-confirm-card is-hidden" role="status">
+              <h3>Recibimos tu solicitud</h3>
+              <p>Un asesor revisará tus datos y te contactará al celular que indicaste.</p>
+              <a href="tel:+573054034164">También puedes llamarnos al 305 403 4164</a>
             </div>
           </div>
         </div>

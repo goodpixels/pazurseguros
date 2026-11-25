@@ -623,7 +623,6 @@ function renderPortfolioCards(category) {
     <article class="portfolio-card reveal-fade-up is-revealed" data-card-id="${item.id}" data-category="${category}">
       <div class="portfolio-card-media">
         <img src="${item.image}" alt="${item.title}" class="portfolio-card-img" loading="lazy" />
-        <span class="portfolio-card-tag">${item.tag}</span>
         ${item.badge ? `<span class="portfolio-card-badge-pill">${item.badge}</span>` : ''}
       </div>
       <div class="portfolio-card-body">
@@ -681,7 +680,11 @@ function initCotizadoresSection() {
   }
 
   const initialType = new URLSearchParams(window.location.search).get('tipo');
-  if (initialType === 'salud' || initialType === 'autos') switchCotizadorTab(initialType);
+  if (['salud', 'autos', 'motos'].includes(initialType)) switchCotizadorTab(initialType === 'salud' ? 'salud' : 'autos');
+  if (initialType === 'motos') {
+    const moto = [...document.querySelectorAll('input[name="autoTipo"]')].find(input => /moto/i.test(input.value));
+    if (moto) moto.checked = true;
+  }
 
   // Format Placa Input (e.g. ABC123 -> ABC-123)
   const placaInput = document.getElementById('cotizAutoPlaca');
@@ -724,31 +727,56 @@ function initCotizadoresSection() {
     });
   }
 
-  // Salud form submission
+  // Health requests are captured by Netlify Forms; confirm only after acceptance.
   if (formSalud) {
-    formSalud.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const personas = document.querySelector('input[name="saludPersonas"]:checked')?.value || '2 personas (pareja/familiar)';
-      const edades = document.getElementById('cotizSaludEdades').value || 'No especificadas';
-      const ciudad = document.getElementById('cotizSaludCiudad').value;
-      const nombre = document.getElementById('cotizSaludNombre').value;
-      const telefono = document.getElementById('cotizSaludTel').value;
-      const qPrioridad = document.querySelector('input[name="saludPrioridad"]:checked')?.value || 'Equilibrio precio/cobertura';
-      const qEps = document.querySelector('input[name="saludEps"]:checked')?.value || 'Sí';
-      const qTipoPlan = document.querySelector('input[name="saludTipoPlan"]:checked')?.value || 'Asesoría entre PAC y Prepagada';
-
-      showCotizadorConfirmation('salud', {
-        nombre,
-        telefono,
-        resumen: `${personas} · Edades: ${edades} · Ciudad: ${ciudad} · Prioridad: ${qPrioridad} · EPS: ${qEps}`
+    const people = document.getElementById('healthApplicants');
+    const add = document.getElementById('addHealthApplicant');
+    const personTemplate = people.firstElementChild.cloneNode(true);
+    const today = new Date();
+    const maxDate = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+    const refreshPeople = () => {
+      [...people.children].forEach((fieldset, index) => {
+        fieldset.querySelector('legend').textContent = `Persona ${index + 1}`;
+        fieldset.querySelector('[data-person="nacimiento"]').max = maxDate;
+        fieldset.querySelector('.health-remove').hidden = people.children.length === 1;
       });
-
-      // Dispatch to WhatsApp
-      const waMsg = `Hola Pazur Seguros! 🩺 Quisiera cotizar plan de salud a mi medida:%0A%0A• *Nombre:* ${encodeURIComponent(nombre)}%0A• *Teléfono:* ${encodeURIComponent(telefono)}%0A• *Personas a asegurar:* ${encodeURIComponent(personas)}%0A• *Edades aproximadas:* ${encodeURIComponent(edades)}%0A• *Ciudad:* ${encodeURIComponent(ciudad)}%0A• *Prioridad:* ${encodeURIComponent(qPrioridad)}%0A• *Tiene EPS:* ${encodeURIComponent(qEps)}%0A• *Preferencia:* ${encodeURIComponent(qTipoPlan)}%0A%0A¿Podrían asesorarme con las opciones más convenientes?`;
-
-      const sendWaBtn = document.getElementById('btnCotizSaludWa');
-      if (sendWaBtn) {
-        sendWaBtn.onclick = () => window.open(`https://wa.me/573054034164?text=${waMsg}`, '_blank');
+      add.disabled = people.children.length >= 10;
+    };
+    refreshPeople();
+    add.addEventListener('click', () => {
+      if (people.children.length >= 10) return;
+      const person = personTemplate.cloneNode(true);
+      people.append(person);
+      refreshPeople();
+      person.querySelector('input').focus();
+    });
+    people.addEventListener('click', event => {
+      if (!event.target.matches('.health-remove') || people.children.length === 1) return;
+      event.target.closest('fieldset').remove();
+      refreshPeople();
+      add.focus();
+    });
+    formSalud.addEventListener('submit', async event => {
+      event.preventDefault();
+      const status = document.getElementById('healthFormStatus');
+      if (import.meta.env.DEV) {
+        status.textContent = 'Vista previa: el formulario está validado. No se enviaron datos. El envío estará disponible en el sitio publicado.';
+        return;
+      }
+      const submit = formSalud.querySelector('[type="submit"]');
+      submit.disabled = true;
+      status.textContent = 'Enviando tu solicitud…';
+      const applicants = [...people.children].map(person => Object.fromEntries([...person.querySelectorAll('[data-person]')].map(input => [input.dataset.person, input.value.trim()])));
+      formSalud.elements.asegurados.value = JSON.stringify(applicants);
+      try {
+        const response = await fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:new URLSearchParams(new FormData(formSalud)).toString()});
+        if (!response.ok) throw new Error('Submission failed');
+        formSalud.hidden = true;
+        document.getElementById('cotizConfirmCard_salud').classList.remove('is-hidden');
+      } catch {
+        status.textContent = 'No pudimos enviar la solicitud. Tus datos siguen aquí para intentarlo de nuevo. También puedes llamarnos al 305 403 4164.';
+      } finally {
+        submit.disabled = false;
       }
     });
   }
@@ -1147,6 +1175,8 @@ function initProtectionCarousel() {
   if (!root) return;
   const viewport = root.querySelector('.protection-viewport');
   const slides = [...root.querySelectorAll('.protection-slide')];
+  const mobile = matchMedia('(max-width: 768px)');
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   let index = 0;
   let timer;
   let pointerStart = null;
@@ -1155,6 +1185,19 @@ function initProtectionCarousel() {
   let nextMoveAt = 0;
   const count = slides.length;
   function render() {
+    if (mobile.matches) {
+      slides.forEach((slide, i) => {
+        slide.style.transform = '';
+        slide.style.opacity = '';
+        slide.style.zIndex = '';
+        slide.style.pointerEvents = '';
+        slide.classList.toggle('is-active', i === index);
+        slide.tabIndex = 0;
+        slide.removeAttribute('aria-hidden');
+        delete slide.dataset.position;
+      });
+      return;
+    }
     const width = slides[0].offsetWidth;
     slides.forEach((slide, i) => {
       const distance = ((i - index + count + Math.floor(count / 2)) % count) - Math.floor(count / 2);
@@ -1180,6 +1223,7 @@ function initProtectionCarousel() {
   }
   function schedule(delay = hoverDirection ? 2400 : 4200) {
     clearTimeout(timer);
+    if (reducedMotion.matches) return;
     timer = setTimeout(() => {
       // A side hover takes priority over autoplay; keyboard focus pauses both.
       if (!document.hidden && !root.querySelector(':focus-visible') && pointerStart === null) move(hoverDirection || 1);
@@ -1189,6 +1233,9 @@ function initProtectionCarousel() {
   function move(direction) {
     index = (index + direction + count) % count;
     nextMoveAt = performance.now() + 1900;
+    if (mobile.matches) {
+      viewport.scrollTo({left: slides[index].offsetLeft - (viewport.clientWidth - slides[index].offsetWidth) / 2, behavior: reducedMotion.matches ? 'instant' : 'smooth'});
+    }
     render(); schedule();
   }
   function setHoverDirection(direction) {
@@ -1198,7 +1245,7 @@ function initProtectionCarousel() {
     schedule(direction ? 650 : 4200);
   }
   viewport.addEventListener('pointermove', event => {
-    if (event.pointerType !== 'mouse' || pointerStart !== null) return;
+    if (mobile.matches || event.pointerType !== 'mouse' || pointerStart !== null) return;
     const card = event.target.closest('.protection-slide');
     const bounds = viewport.getBoundingClientRect();
     const center = bounds.left + bounds.width / 2;
@@ -1215,8 +1262,9 @@ function initProtectionCarousel() {
       event.preventDefault(); move(event.key === 'ArrowRight' ? 1 : -1);
     }
   });
-  viewport.addEventListener('pointerdown', event => { setHoverDirection(0); pointerStart = event.clientX; swiped = false; });
+  viewport.addEventListener('pointerdown', event => { if (mobile.matches) { clearTimeout(timer); return; } setHoverDirection(0); pointerStart = event.clientX; swiped = false; });
   window.addEventListener('pointerup', event => {
+    if (mobile.matches) { schedule(6000); return; }
     if (pointerStart === null) return;
     const delta = event.clientX - pointerStart;
     pointerStart = null;
@@ -1225,6 +1273,7 @@ function initProtectionCarousel() {
   viewport.addEventListener('pointercancel', () => { pointerStart = null; });
   viewport.addEventListener('dragstart', event => event.preventDefault());
   viewport.addEventListener('click', event => {
+    if (mobile.matches) return;
     if (swiped) { event.preventDefault(); swiped = false; return; }
     const slide = event.target.closest('.protection-slide');
     if (slide && !slide.classList.contains('is-active')) {
@@ -1232,6 +1281,20 @@ function initProtectionCarousel() {
     }
   });
   document.addEventListener('visibilitychange', () => { hoverDirection = 0; schedule(); });
+  viewport.addEventListener('scroll', () => {
+    if (!mobile.matches) return;
+    const center = viewport.scrollLeft + viewport.clientWidth / 2;
+    index = slides.reduce((best, slide, i) => Math.abs(slide.offsetLeft + slide.offsetWidth / 2 - center) < Math.abs(slides[best].offsetLeft + slides[best].offsetWidth / 2 - center) ? i : best, 0);
+    render();
+    schedule(6000);
+  }, {passive:true});
+  mobile.addEventListener('change', () => {
+    pointerStart = null;
+    hoverDirection = 0;
+    viewport.scrollLeft = 0;
+    index = 0;
+    render(); schedule();
+  });
   new ResizeObserver(render).observe(viewport);
   render(); schedule();
 }
@@ -1255,3 +1318,18 @@ function initCardMotion() {
 }
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initCardMotion);
 else initCardMotion();
+
+// Accessible quote choices in the hero, including keyboard and outside dismissal.
+const heroQuoteToggle = document.getElementById('heroQuoteToggle');
+const heroQuoteOptions = document.getElementById('heroQuoteOptions');
+if (heroQuoteToggle && heroQuoteOptions) {
+  const closeQuoteOptions = () => { heroQuoteOptions.hidden = true; heroQuoteToggle.setAttribute('aria-expanded', 'false'); };
+  heroQuoteToggle.addEventListener('click', () => {
+    const open = heroQuoteOptions.hidden;
+    heroQuoteOptions.hidden = !open;
+    heroQuoteToggle.setAttribute('aria-expanded', String(open));
+  });
+  document.addEventListener('click', event => { if (!event.target.closest('.hero-quote-dropdown')) closeQuoteOptions(); });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && !heroQuoteOptions.hidden) { closeQuoteOptions(); heroQuoteToggle.focus(); } });
+  document.querySelector('.hero-quote-dropdown').addEventListener('focusout', event => { if (!event.currentTarget.contains(event.relatedTarget)) closeQuoteOptions(); });
+}
